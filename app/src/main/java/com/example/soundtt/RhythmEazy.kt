@@ -56,6 +56,7 @@ class RhythmEazy : AppCompatActivity() {
             showPauseDialog()
         }
 
+
         btnback.setOnClickListener {
             // 録音を停止
             stopRecording()
@@ -101,7 +102,7 @@ class RhythmEazy : AppCompatActivity() {
 
         // MediaRecorderの設定
         val file = File(applicationContext.filesDir, "recorded_audio.3gp")
-        mediaRecorder=MediaRecorder()
+        mediaRecorder = MediaRecorder()
         mediaRecorder.apply {
             setAudioSource(MediaRecorder.AudioSource.MIC)
             setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
