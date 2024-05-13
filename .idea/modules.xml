@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SoundTT.iml" filepath="$PROJECT_DIR$/.idea/modules/SoundTT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SoundTT.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SoundTT.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SoundTT.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SoundTT.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SoundTT.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SoundTT.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SoundTT.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SoundTT.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,7 @@
+com.example.soundtt.test.app-core-1.5.0-0 /Users/k21146kk/.gradle/caches/transforms-3/9625a4369847c3660983c501a7b3626b/transformed/core-1.5.0/res
+com.example.soundtt.test.app-annotation-experimental-1.3.0-1 /Users/k21146kk/.gradle/caches/transforms-3/9fae957ef0e1266a83e5188cb210102e/transformed/annotation-experimental-1.3.0/res
+com.example.soundtt.test.app-androidTest-2 /Users/k21146kk/Downloads/RhythmRallyTT/app/build/generated/res/resValues/androidTest/debug
+com.example.soundtt.test.app-androidTest-3 /Users/k21146kk/Downloads/RhythmRallyTT/app/build/generated/res/rs/androidTest/debug
+com.example.soundtt.test.app-mergeDebugAndroidTestResources-4 /Users/k21146kk/Downloads/RhythmRallyTT/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.example.soundtt.test.app-mergeDebugAndroidTestResources-5 /Users/k21146kk/Downloads/RhythmRallyTT/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.example.soundtt.test.app-merged_res-6 /Users/k21146kk/Downloads/RhythmRallyTT/app/build/intermediates/merged_res/debugAndroidTest
