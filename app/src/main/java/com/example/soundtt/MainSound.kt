@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 import org.jtransforms.fft.DoubleFFT_1D
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 class MainSound : AppCompatActivity() {
     private lateinit var mediaPlayer: MediaPlayer
@@ -97,16 +99,31 @@ class MainSound : AppCompatActivity() {
     }
 
     private fun createInverseAudioBytes(audioBytes: ByteArray): ByteArray {
+        val shorts = ShortArray(audioBytes.size / 2)
+        ByteBuffer.wrap(audioBytes).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shorts)
+        val inverseShorts = ShortArray(shorts.size)
+
         // 音源の逆位相を合成
-        // ここで実装
-        return audioBytes
+        for (i in shorts.indices) {
+            inverseShorts[i] = (shorts[i] * -1).toShort()
+        }
+
+        val inverseBytes = ByteArray(audioBytes.size)
+        val buffer = ByteBuffer.wrap(inverseBytes)
+        for (s in inverseShorts) {
+            buffer.putShort(s)
+        }
+        return inverseBytes
     }
 
     private fun extractEnvironmentSound(audioBytes: ByteArray): ByteArray {
         // 音源の音を除いた環境音を抽出
         // ここで実装
+
+        // 今は音源そのものをそのまま返す
         return audioBytes
     }
+
 
     override fun onStop() {
         super.onStop()
