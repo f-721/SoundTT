@@ -15,7 +15,7 @@ class RhythmNormal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rhythmeazy)
-
+        //テストだよーん
         val tvex: TextView = findViewById(R.id.tvex)
         val tvgreat: TextView = findViewById(R.id.tvgreat)
         val tvgood: TextView = findViewById(R.id.tvgood)
