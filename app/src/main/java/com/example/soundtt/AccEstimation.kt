@@ -102,26 +102,7 @@ class AccEstimation() {
                 }
             }
         }
-        fun estimationIsHit(acc_num: Double, Nowtime: Long, hitThreshold: Double) {
-            if (Nowtime > 4000) { // 4秒以降のデータを扱う
-                if (timeflag) {
-                    HitTimingChecker.setHitDetectionTime(Nowtime)
-                    timeflag = false
-                }
-
-                if (acc_num > hitThreshold) {
-                    if (HitTimingChecker.checkHitTiming()) {
-                        Log.d("Estimation", "ヒット検出：ずれ1秒以内（チェックマーク）")
-                        _isHit.postValue(true)
-                    } else {
-                        Log.d("Estimation", "ヒット検出：ずれ1秒以上（クロス）")
-                        _isHit.postValue(false)
-                    }
-                }
-            }
         }
-
-    }
 
     // スイングしたか推定する
     fun estimationIsSwing(acc_num: Double) {

@@ -14,6 +14,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.soundtt.ui.main.MainFragment
 import java.io.File
 
@@ -24,14 +26,14 @@ class RhythmEazy : AppCompatActivity() {
     private var isRecording = false
     private var bufferSize: Int = 0
 
+    private lateinit var judgeTiming: JudgeTiming
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rhythmeazy)
 
-        mediaPlayer = MediaPlayer.create(this,R.raw.rhythmrally1)
+        mediaPlayer = MediaPlayer.create(this, R.raw.rhythmrally1)
 
-
-        val tvex: TextView = findViewById(R.id.tvex)
         val tvgreat: TextView = findViewById(R.id.tvgreat)
         val tvgood: TextView = findViewById(R.id.tvgood)
         val tvbad: TextView = findViewById(R.id.tvbad)
@@ -39,14 +41,38 @@ class RhythmEazy : AppCompatActivity() {
         val logEazyStart: Button = findViewById(R.id.btnHardStart)
         val btnback: Button = findViewById(R.id.btnback)
 
+        judgeTiming = ViewModelProvider(this).get(JudgeTiming::class.java)
 
         logEazyStart.setOnClickListener {
-
             // 音声を再生
             playSound()
 
             // 録音を開始
             startRecording()
+
+            // 判定を開始
+            judgeTiming.startJudging()
+
+            // ヒット判定の結果を観察
+            judgeTiming.judgement.observe(this, Observer { judgement ->
+                when (judgement) {
+                    "GREAT" -> {
+                        tvgreat.text = "GREAT"
+                        tvgood.text = ""
+                        tvbad.text = ""
+                    }
+                    "GOOD" -> {
+                        tvgreat.text = ""
+                        tvgood.text = "GOOD"
+                        tvbad.text = ""
+                    }
+                    "BAD" -> {
+                        tvgreat.text = ""
+                        tvgood.text = ""
+                        tvbad.text = "BAD"
+                    }
+                }
+            })
 
             showToast("録音開始")
         }
@@ -56,25 +82,24 @@ class RhythmEazy : AppCompatActivity() {
             showPauseDialog()
         }
 
-
         btnback.setOnClickListener {
-            // 録音を停止
-            stopRecording()
-            // Toastメッセージを表示
-            showToast("録音終了")
+            if (isRecording) {
+                // 録音を停止
+                stopRecording()
+                // 判定を停止
+                judgeTiming.stopJudging()
+                // Toastメッセージを表示
+                showToast("録音終了")
+            }
 
             // メインフラグメントに戻る
             val intent = Intent(this, MainFragment::class.java)
             startActivity(intent)
         }
-
     }
 
-    // 音声を再生する関数
     private fun playSound() {
-        // MediaPlayerを初期化し、音声ファイルを再生
         mediaPlayer.apply {
-            // 再生が終了したら、再度再生できるようにリセット
             if (isPlaying) {
                 stop()
                 prepare()
@@ -83,9 +108,7 @@ class RhythmEazy : AppCompatActivity() {
         }
     }
 
-    // 録音を開始する関数
     private fun startRecording() {
-        // 録音の設定
         bufferSize = AudioRecord.getMinBufferSize(
             44100,
             AudioFormat.CHANNEL_IN_MONO,
@@ -96,11 +119,9 @@ class RhythmEazy : AppCompatActivity() {
                 Manifest.permission.RECORD_AUDIO
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling ActivityCompat#requestPermissions here
             return
         }
 
-        // MediaRecorderの設定
         val file = File(applicationContext.filesDir, "recorded_audio.3gp")
         mediaRecorder = MediaRecorder()
         mediaRecorder.apply {
@@ -128,7 +149,6 @@ class RhythmEazy : AppCompatActivity() {
         isRecording = true
     }
 
-    // 録音を停止する関数
     private fun stopRecording() {
         if (isRecording) {
             mediaRecorder.stop()
@@ -137,36 +157,28 @@ class RhythmEazy : AppCompatActivity() {
         }
     }
 
-    // ポーズダイアログを表示する関数
     private fun showPauseDialog() {
         AlertDialog.Builder(this)
             .setTitle("PAUSE")
             .setPositiveButton("再開") { dialog, which ->
-                // 再開ボタンがクリックされたときの処理
-                mediaPlayer.start() // 音声を再開する
-                startRecording() // 録音を再開する
+                mediaPlayer.start()
+                startRecording()
             }
             .setNegativeButton("リトライ") { dialog, which ->
-                // リトライボタンがクリックされたときの処理
-                // ここにリトライ時の処理を記述する
-                mediaPlayer.seekTo(0) // 音源を最初から再生する
-                mediaPlayer.start() // 音源を再生する
-                startRecording() // 録音を再開する
+                mediaPlayer.seekTo(0)
+                mediaPlayer.start()
+                startRecording()
             }
             .show()
     }
 
-    // Toastでメッセージを表示する関数
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
-        // アクティビティが破棄されるときにMediaPlayerとMediaRecorderを解放
         mediaPlayer.release()
         stopRecording()
-        showToast("録音終了")
     }
 }

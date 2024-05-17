@@ -27,6 +27,8 @@
             android:enabled="true"
             android:exported="false" />
 
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -49,7 +51,11 @@
             android:name=".RhythmHard"
             android:exported="false">
         </activity>
-<!--         画面遷移先増やす場合はActivity追加で-->
+<!--        <activity-->
+<!--            android:name=".MainSound"-->
+<!--            android:exported="false">-->
+<!--        </activity>-->
+<!--画面遷移先増やす場合はActivity追加で-->
     </application>
 
 </manifest>
