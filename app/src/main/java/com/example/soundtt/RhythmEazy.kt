@@ -161,8 +161,7 @@ class RhythmEazy : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("PAUSE")
             .setPositiveButton("再開") { dialog, which ->
-                mediaPlayer.start()
-                startRecording()
+
             }
             .setNegativeButton("リトライ") { dialog, which ->
                 mediaPlayer.seekTo(0)
