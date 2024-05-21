@@ -1,25 +1,24 @@
 package com.example.soundtt.ui.main
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.soundtt.AudioEstimation
-import com.example.soundtt.MusicService
 import com.example.soundtt.NearBy
 import com.example.soundtt.PlayAudio
 import com.example.soundtt.R
 import com.example.soundtt.RhythmEazy
-import com.example.soundtt.RhythmNormal
 import com.example.soundtt.RhythmHard
-import java.util.*
+import com.example.soundtt.RhythmNormal
+import java.util.ArrayDeque
 
 class MainFragment : Fragment() {
 
@@ -33,7 +32,7 @@ class MainFragment : Fragment() {
     private lateinit var playAudio: PlayAudio
     private lateinit var logHit: TextView
     private lateinit var logSwing: TextView
-//    private lateinit var logCount:TextView
+    //    private lateinit var logCount:TextView
     private lateinit var logDb:TextView
     private lateinit var logEazy:Button
     private lateinit var logNormal:Button

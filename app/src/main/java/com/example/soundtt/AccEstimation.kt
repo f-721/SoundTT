@@ -19,6 +19,9 @@ class AccEstimation {
     private val _accTest = MutableLiveData<String>("")
     val accTest: LiveData<String> = _accTest
 
+    // ヒットの最後の時間を記録
+    private var lastHitTime = System.currentTimeMillis()
+
     //フィルターかけるようの宣言
     var timeflag = true
     var difftime: Long = 1
@@ -81,6 +84,7 @@ class AccEstimation {
                     hit_hantei = true
                     bl_hit_updown = false
                     bl_onhit = true
+                    lastHitTime = System.currentTimeMillis() // ヒット判定のタイミングを記録
                     Log.d("Estimation", "acc_num = $acc_num")
                     _isHit.postValue(true)
                 }

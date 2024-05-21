@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-hdpi/ic_launcher_round.webp"
-    },
-    {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_rallyaudio.mp3.flat",
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/rallyaudio.mp3"
+    },
+    {
+        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-mdpi_ic_launcher.webp.flat",
@@ -64,10 +64,6 @@
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/count3.mp3"
     },
     {
-        "merged": "com.example.soundtt.app-merged_res-38:/layout_fragment_main.xml.flat",
-        "source": "com.example.soundtt.app-main-40:/layout/fragment_main.xml"
-    },
-    {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_rhythmrally1.mp3.flat",
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/rhythmrally1.mp3"
     },
@@ -94,6 +90,10 @@
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_pahu.mp3.flat",
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/pahu.mp3"
+    },
+    {
+        "merged": "com.example.soundtt.app-merged_res-38:/layout_rhythmeazy.xml.flat",
+        "source": "com.example.soundtt.app-main-40:/layout/rhythmeazy.xml"
     },
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
