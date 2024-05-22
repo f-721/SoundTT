@@ -8,7 +8,6 @@ import android.media.AudioRecord
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -21,7 +20,6 @@ import com.example.soundtt.ui.main.MainFragment
 import java.io.File
 
 class RhythmEazy : AppCompatActivity() {
-
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var mediaRecorder: MediaRecorder
     private var audioRecord: AudioRecord? = null
@@ -43,18 +41,37 @@ class RhythmEazy : AppCompatActivity() {
         val logEazyStart: Button = findViewById(R.id.btnHardStart)
         val btnback: Button = findViewById(R.id.btnback)
 
-        judgeTiming = ViewModelProvider(this).get(JudgeTiming::class.java)
+        // JudgeTimingFactoryを使ってViewModelのインスタンスを作成
+        judgeTiming = ViewModelProvider(this, JudgeTimingFactory(this)).get(JudgeTiming::class.java)
 
         logEazyStart.setOnClickListener {
+            // 音声を再生
             playSound()
+
+            // 録音を開始
             startRecording()
+
+            // 判定を開始
             judgeTiming.startJudging()
 
+            // ヒット判定の結果を観察
             judgeTiming.judgement.observe(this, Observer { judgement ->
                 when (judgement) {
-                    "GREAT" -> updateJudgementViews(View.VISIBLE, View.GONE, View.GONE)
-                    "GOOD" -> updateJudgementViews(View.GONE, View.VISIBLE, View.GONE)
-                    "BAD" -> updateJudgementViews(View.GONE, View.GONE, View.VISIBLE)
+                    "GREAT" -> {
+                        tvgreat.text = "GREAT"
+                        tvgood.text = ""
+                        tvbad.text = ""
+                    }
+                    "GOOD" -> {
+                        tvgreat.text = ""
+                        tvgood.text = "GOOD"
+                        tvbad.text = ""
+                    }
+                    "BAD" -> {
+                        tvgreat.text = ""
+                        tvgood.text = ""
+                        tvbad.text = "BAD"
+                    }
                 }
             })
 
@@ -62,15 +79,21 @@ class RhythmEazy : AppCompatActivity() {
         }
 
         btnpause.setOnClickListener {
+            // ポーズダイアログを表示
             showPauseDialog()
         }
 
         btnback.setOnClickListener {
             if (isRecording) {
+                // 録音を停止
                 stopRecording()
+                // 判定を停止
                 judgeTiming.stopJudging()
+                // Toastメッセージを表示
                 showToast("録音終了")
             }
+
+            // メインフラグメントに戻る
             val intent = Intent(this, MainFragment::class.java)
             startActivity(intent)
         }
@@ -110,33 +133,37 @@ class RhythmEazy : AppCompatActivity() {
 
             try {
                 prepare()
-                start() // 録音を開始
-                isRecording = true
             } catch (e: Exception) {
                 e.printStackTrace()
-                isRecording = false
             }
         }
+
+        audioRecord = AudioRecord(
+            MediaRecorder.AudioSource.MIC,
+            44100,
+            AudioFormat.CHANNEL_IN_MONO,
+            AudioFormat.ENCODING_PCM_16BIT,
+            bufferSize
+        )
+
+        audioRecord?.startRecording()
+        isRecording = true
     }
 
     private fun stopRecording() {
         if (isRecording) {
-            try {
-                mediaRecorder.stop()
-            } catch (e: IllegalStateException) {
-                e.printStackTrace()
-            } finally {
-                mediaRecorder.release()
-                isRecording = false
-            }
+            mediaRecorder.stop()
+            mediaRecorder.release()
+            isRecording = false
         }
     }
-
 
     private fun showPauseDialog() {
         AlertDialog.Builder(this)
             .setTitle("PAUSE")
             .setPositiveButton("再開") { dialog, which ->
+                mediaPlayer.start()
+                startRecording()
             }
             .setNegativeButton("リトライ") { dialog, which ->
                 mediaPlayer.seekTo(0)
@@ -148,12 +175,6 @@ class RhythmEazy : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun updateJudgementViews(greatVisible: Int, goodVisible: Int, badVisible: Int) {
-        findViewById<TextView>(R.id.tvgreat).visibility = greatVisible
-        findViewById<TextView>(R.id.tvgood).visibility = goodVisible
-        findViewById<TextView>(R.id.tvbad).visibility = badVisible
     }
 
     override fun onDestroy() {

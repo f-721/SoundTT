@@ -41,13 +41,6 @@ class AccEstimation {
     var hit = 0.2
     var swing = 1.0
 
-    data class AccData(val x: Float, val y: Float, val z: Float)
-
-    fun getAccData(): AccData {
-        // センサーデータを取得するロジックを実装
-        // ここではダミーデータを返します
-        return AccData(1.0f, 1.0f, 1.0f)
-    }
 
     fun filter(x: Float, y: Float, z: Float): Triple<Double, Double, Long> {
         val (butterworth_hx, butterworth_hy, butterworth_hz) = listOf(Butterworth(), Butterworth(), Butterworth())
@@ -125,14 +118,14 @@ class AccEstimation {
         }
     }
 
-    fun accTest(x: Float, y: Float, z: Float) {
-        val maxNum = maxOf(x, y, z)
-        val maxVar = when (maxNum) {
-            x -> "x"
-            y -> "y"
-            z -> "z"
-            else -> "Unknown"
-        }
-        _accTest.postValue(maxVar)
-    }
+//    fun accTest(x: Float, y: Float, z: Float) {
+//        val maxNum = maxOf(x, y, z)
+//        val maxVar = when (maxNum) {
+//            x -> "x"
+//            y -> "y"
+//            z -> "z"
+//            else -> "Unknown"
+//        }
+//        _accTest.postValue(maxVar)
+//    }
 }
