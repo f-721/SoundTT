@@ -20,7 +20,7 @@ import com.example.soundtt.RhythmHard
 import com.example.soundtt.RhythmNormal
 import java.util.ArrayDeque
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(R.layout.fragment_main) {
 
     companion object {
         fun newInstance() = MainFragment()

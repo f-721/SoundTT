@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.soundtt.app-mergeDebugResources-36:/values-az/values-az.xml",
+            "outputFile": "com.example.soundtt.app-mergeDebugResources-40:/values-az/values-az.xml",
             "map": [
                 {
                     "source": "/Users/k21146kk/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/res/values-az/values-az.xml",

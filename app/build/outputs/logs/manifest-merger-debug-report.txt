@@ -1,20 +1,22 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
-INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
-INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
-INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
+ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
 MERGED from [com.google.android.material:material:1.8.0] /Users/k21146kk/.gradle/caches/transforms-3/9ae6143ba7d88d1cbf68916d08d2afcb/transformed/material-1.8.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/k21146kk/.gradle/caches/transforms-3/fe5722c2d28764b765710ac6c318c6e8/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:2:1-19:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/k21146kk/.gradle/caches/transforms-3/41dcf42bc854479e43f628ab1a52618d/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/k21146kk/.gradle/caches/transforms-3/8d9343f569df63b726615d18b45679d4/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:2:1-16:12
+MERGED from [androidx.fragment:fragment-ktx:1.4.0] /Users/k21146kk/.gradle/caches/transforms-3/88480049a4515588eb4de3208e4ace18/transformed/fragment-ktx-1.4.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/03d2eddd7c1e665a9f8b90894cf88345/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/1e2040f1f2b120a90d06aa131abc2932/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:16:1-26:12
-MERGED from [androidx.fragment:fragment:1.3.6] /Users/k21146kk/.gradle/caches/transforms-3/93ac10b68cc6b2ecdb3339310a897f91/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.4.0] /Users/k21146kk/.gradle/caches/transforms-3/e1f30d75ee64370ebbf132fbb002acaa/transformed/fragment-1.4.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.6.0] /Users/k21146kk/.gradle/caches/transforms-3/b14ab23ba57da8846e165d547656c285/transformed/activity-ktx-1.6.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.6.0] /Users/k21146kk/.gradle/caches/transforms-3/6bd59ce5ad314a42b8a1944d4e5257cc/transformed/activity-1.6.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/16a06af682caf3e4461b750d0ec3329b/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
@@ -24,9 +26,11 @@ MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/k21146kk/.
 MERGED from [androidx.transition:transition:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/d937372f4d1bea6dffbb3852bb38fc5f/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/cbbc4b372f1c21cdbfbf9f3be76a07c9/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/375f37d29d3e45d7544f4bc7612dcb8b/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/1aae02725642fbe0a3ee8690a5e01ad2/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/963f14f0f5895438140e02a58c7eb9dc/transformed/lifecycle-runtime-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/e53451fb6d491de5c3916fce09aafe15/transformed/lifecycle-livedata-core-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/38b370b1a00343e8a8dd7aa5336facbb/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/1aae02725642fbe0a3ee8690a5e01ad2/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/73932f59518b60f165c3e7436196a637/transformed/lifecycle-livedata-core-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/4a59aef806fb7c7447a1dadffb6842fc/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/ad34293432ff94dc6ad001a6ed366bcd/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -34,8 +38,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] /Users/k21146kk/.gradl
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/81d0e238e278bb8c15249fc8a5c6b84c/transformed/lifecycle-viewmodel-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/2aa757d57ef08031107af525e71cb4f2/transformed/lifecycle-viewmodel-savedstate-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.9.0] /Users/k21146kk/.gradle/caches/transforms-3/3804df00b84543228f2beb9eb1b2fe30/transformed/core-ktx-1.9.0/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/032aa262003524a59cfb206aaf2be960/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/52d740e8e970387c182bf237433c154a/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/032aa262003524a59cfb206aaf2be960/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/86203c94a007ded7889b26f3ef017f3d/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.9.0] /Users/k21146kk/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/8b3f49aaa9722a602c49ed29a0603b55/transformed/lifecycle-runtime-2.6.1/AndroidManifest.xml:2:1-7:12
@@ -53,22 +57,22 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/k21146kk/.gradle/c
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/7035a2135f2972f98fa12a92c56bc089/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/2ff53fee4bc33a1da5cdbfe55cfab510/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/a21766c7c1a00190a294c68fee7e28e6/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
-INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
-INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
+INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
 	package
 		INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml
-		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
+		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
 		INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml
-		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
+		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
 		INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml
-		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-61:12
+		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:1-62:12
 		INJECTED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:2:11-69
@@ -113,7 +117,7 @@ ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.
 	android:name
 		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:14:22-76
 application
-ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:16:5-59:19
+ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:16:5-60:19
 MERGED from [com.google.android.material:material:1.8.0] /Users/k21146kk/.gradle/caches/transforms-3/9ae6143ba7d88d1cbf68916d08d2afcb/transformed/material-1.8.0/AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.8.0] /Users/k21146kk/.gradle/caches/transforms-3/9ae6143ba7d88d1cbf68916d08d2afcb/transformed/material-1.8.0/AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/k21146kk/.gradle/caches/transforms-3/fe5722c2d28764b765710ac6c318c6e8/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -216,6 +220,8 @@ MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/k21146kk/.gradle/caches/
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/k21146kk/.gradle/caches/transforms-3/8d9343f569df63b726615d18b45679d4/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.4.0] /Users/k21146kk/.gradle/caches/transforms-3/88480049a4515588eb4de3208e4ace18/transformed/fragment-ktx-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.4.0] /Users/k21146kk/.gradle/caches/transforms-3/88480049a4515588eb4de3208e4ace18/transformed/fragment-ktx-1.4.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/03d2eddd7c1e665a9f8b90894cf88345/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/03d2eddd7c1e665a9f8b90894cf88345/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
@@ -224,8 +230,10 @@ MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/k21146kk/
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/1e2040f1f2b120a90d06aa131abc2932/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
-MERGED from [androidx.fragment:fragment:1.3.6] /Users/k21146kk/.gradle/caches/transforms-3/93ac10b68cc6b2ecdb3339310a897f91/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.3.6] /Users/k21146kk/.gradle/caches/transforms-3/93ac10b68cc6b2ecdb3339310a897f91/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.0] /Users/k21146kk/.gradle/caches/transforms-3/e1f30d75ee64370ebbf132fbb002acaa/transformed/fragment-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.0] /Users/k21146kk/.gradle/caches/transforms-3/e1f30d75ee64370ebbf132fbb002acaa/transformed/fragment-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.6.0] /Users/k21146kk/.gradle/caches/transforms-3/b14ab23ba57da8846e165d547656c285/transformed/activity-ktx-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.6.0] /Users/k21146kk/.gradle/caches/transforms-3/b14ab23ba57da8846e165d547656c285/transformed/activity-ktx-1.6.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.6.0] /Users/k21146kk/.gradle/caches/transforms-3/6bd59ce5ad314a42b8a1944d4e5257cc/transformed/activity-1.6.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.6.0] /Users/k21146kk/.gradle/caches/transforms-3/6bd59ce5ad314a42b8a1944d4e5257cc/transformed/activity-1.6.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/16a06af682caf3e4461b750d0ec3329b/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
@@ -244,12 +252,16 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/k2114
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/cbbc4b372f1c21cdbfbf9f3be76a07c9/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/375f37d29d3e45d7544f4bc7612dcb8b/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/375f37d29d3e45d7544f4bc7612dcb8b/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/1aae02725642fbe0a3ee8690a5e01ad2/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/1aae02725642fbe0a3ee8690a5e01ad2/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/963f14f0f5895438140e02a58c7eb9dc/transformed/lifecycle-runtime-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/963f14f0f5895438140e02a58c7eb9dc/transformed/lifecycle-runtime-ktx-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/e53451fb6d491de5c3916fce09aafe15/transformed/lifecycle-livedata-core-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/e53451fb6d491de5c3916fce09aafe15/transformed/lifecycle-livedata-core-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/38b370b1a00343e8a8dd7aa5336facbb/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/38b370b1a00343e8a8dd7aa5336facbb/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/1aae02725642fbe0a3ee8690a5e01ad2/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/k21146kk/.gradle/caches/transforms-3/1aae02725642fbe0a3ee8690a5e01ad2/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/73932f59518b60f165c3e7436196a637/transformed/lifecycle-livedata-core-ktx-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/73932f59518b60f165c3e7436196a637/transformed/lifecycle-livedata-core-ktx-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/4a59aef806fb7c7447a1dadffb6842fc/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
@@ -264,10 +276,10 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] /Users/k21
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/2aa757d57ef08031107af525e71cb4f2/transformed/lifecycle-viewmodel-savedstate-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core-ktx:1.9.0] /Users/k21146kk/.gradle/caches/transforms-3/3804df00b84543228f2beb9eb1b2fe30/transformed/core-ktx-1.9.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-ktx:1.9.0] /Users/k21146kk/.gradle/caches/transforms-3/3804df00b84543228f2beb9eb1b2fe30/transformed/core-ktx-1.9.0/AndroidManifest.xml:5:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/032aa262003524a59cfb206aaf2be960/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/032aa262003524a59cfb206aaf2be960/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/52d740e8e970387c182bf237433c154a/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/52d740e8e970387c182bf237433c154a/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/032aa262003524a59cfb206aaf2be960/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/k21146kk/.gradle/caches/transforms-3/032aa262003524a59cfb206aaf2be960/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/86203c94a007ded7889b26f3ef017f3d/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.1.0] /Users/k21146kk/.gradle/caches/transforms-3/86203c94a007ded7889b26f3ef017f3d/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.9.0] /Users/k21146kk/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:20:5-44

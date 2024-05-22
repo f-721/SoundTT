@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.soundtt.app-mergeDebugResources-36:/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "com.example.soundtt.app-mergeDebugResources-40:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "/Users/k21146kk/.gradle/caches/transforms-3/9ae6143ba7d88d1cbf68916d08d2afcb/transformed/material-1.8.0/res/values-pt-rPT/values-pt-rPT.xml",

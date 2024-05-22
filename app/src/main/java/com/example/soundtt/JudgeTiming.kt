@@ -1,6 +1,5 @@
 package com.example.soundtt
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,7 +12,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class JudgeTiming(context: Context) : ViewModel() {
+class JudgeTiming() : ViewModel() {
 
     private val _judgement = MutableLiveData<String>()
     val judgement: LiveData<String> = _judgement
@@ -34,13 +33,15 @@ class JudgeTiming(context: Context) : ViewModel() {
     fun startJudging() {
         job = CoroutineScope(Dispatchers.Main).launch {
             while (isActive) {
-                delay(2000)
+                delay(1600)
                 val timeDiff = System.currentTimeMillis() - lastHitTime
                 Log.d("JudgeTiming", "Time difference: $timeDiff ms")
 
+                lastHitTime = System.currentTimeMillis()
+
                 when {
-                    timeDiff <= 20000 -> _judgement.postValue("GREAT")
-                    timeDiff <= 30000 -> _judgement.postValue("GOOD")
+                    timeDiff <= 2000 -> _judgement.postValue("GREAT")
+                    timeDiff <= 3000 -> _judgement.postValue("GOOD")
                     else -> _judgement.postValue("BAD")
                 }
             }

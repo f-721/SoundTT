@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.soundtt.app-mergeDebugResources-36:/values-it/values-it.xml",
+            "outputFile": "com.example.soundtt.app-mergeDebugResources-40:/values-it/values-it.xml",
             "map": [
                 {
                     "source": "/Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/res/values-it/values.xml",

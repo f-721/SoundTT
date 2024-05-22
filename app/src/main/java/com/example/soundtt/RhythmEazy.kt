@@ -1,7 +1,6 @@
 package com.example.soundtt
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.AudioFormat
 import android.media.AudioRecord
@@ -22,8 +21,6 @@ import java.io.File
 class RhythmEazy : AppCompatActivity() {
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var mediaRecorder: MediaRecorder
-    private var audioRecord: AudioRecord? = null
-    private var isRecording = false
     private var bufferSize: Int = 0
 
     private lateinit var judgeTiming: JudgeTiming
@@ -47,9 +44,6 @@ class RhythmEazy : AppCompatActivity() {
         logEazyStart.setOnClickListener {
             // 音声を再生
             playSound()
-
-            // 録音を開始
-            startRecording()
 
             // 判定を開始
             judgeTiming.startJudging()
@@ -84,19 +78,16 @@ class RhythmEazy : AppCompatActivity() {
         }
 
         btnback.setOnClickListener {
-            if (isRecording) {
-                // 録音を停止
-                stopRecording()
-                // 判定を停止
-                judgeTiming.stopJudging()
-                // Toastメッセージを表示
-                showToast("録音終了")
-            }
+            judgeTiming.stopJudging()
 
-            // メインフラグメントに戻る
-            val intent = Intent(this, MainFragment::class.java)
-            startActivity(intent)
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.container, MainFragment.newInstance())
+                commit()
+            }
         }
+
+
+
     }
 
     private fun playSound() {
@@ -137,38 +128,18 @@ class RhythmEazy : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-
-        audioRecord = AudioRecord(
-            MediaRecorder.AudioSource.MIC,
-            44100,
-            AudioFormat.CHANNEL_IN_MONO,
-            AudioFormat.ENCODING_PCM_16BIT,
-            bufferSize
-        )
-
-        audioRecord?.startRecording()
-        isRecording = true
     }
 
-    private fun stopRecording() {
-        if (isRecording) {
-            mediaRecorder.stop()
-            mediaRecorder.release()
-            isRecording = false
-        }
-    }
 
     private fun showPauseDialog() {
         AlertDialog.Builder(this)
             .setTitle("PAUSE")
             .setPositiveButton("再開") { dialog, which ->
                 mediaPlayer.start()
-                startRecording()
             }
             .setNegativeButton("リトライ") { dialog, which ->
                 mediaPlayer.seekTo(0)
                 mediaPlayer.start()
-                startRecording()
             }
             .show()
     }
@@ -180,6 +151,6 @@ class RhythmEazy : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         mediaPlayer.release()
-        stopRecording()
+
     }
 }

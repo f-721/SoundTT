@@ -64,6 +64,7 @@
             android:name="com.example.soundtt.RhythmHard"
             android:exported="false" >
         </activity>
+
         <!-- <activity -->
         <!-- android:name=".MainSound" -->
         <!-- android:exported="false"> -->

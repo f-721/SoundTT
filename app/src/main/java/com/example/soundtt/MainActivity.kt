@@ -1,20 +1,23 @@
 package com.example.soundtt
 
 import android.Manifest
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.soundtt.ui.main.MainFragment
 import pub.devrel.easypermissions.EasyPermissions
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
+            supportFragmentManager.commit {
+                replace<MainFragment>(R.id.container)
+            }
         }
 
         // todo 権限

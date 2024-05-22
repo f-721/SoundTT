@@ -1,138 +1,134 @@
 [
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_rallyaudio.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/rallyaudio.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_count5.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/count5.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/layout_activity_main.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/layout/activity_main.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_count3.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/count3.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/layout_rhythmeazy.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/layout/rhythmeazy.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/drawable-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/layout_fragment_main.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/layout/fragment_main.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_sippai.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/sippai.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/layout_rhythmhard.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/layout/rhythmhard.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/layout_rhythmnormal.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/layout/rhythmnormal.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_count1.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/count1.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_count1.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/count1.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/layout_fragment_main.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/layout/fragment_main.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-anydpi-v33_ic_launcher.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-anydpi-v33/ic_launcher.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/layout_activity_main.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/layout/activity_main.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-anydpi-v33/ic_launcher.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/drawable_ic_launcher_background.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_issenn.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/issenn.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_bgm.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/bgm.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/layout_rhythmeazy.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/layout/rhythmeazy.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_count3.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/count3.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/xml_backup_rules.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/xml/backup_rules.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_rhythmrally1.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/rhythmrally1.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/layout_rhythmnormal.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/layout/rhythmnormal.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_issenn.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/issenn.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/drawable-v24/ic_launcher_foreground.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/xml_data_extraction_rules.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/xml/data_extraction_rules.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_rallyaudio.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/rallyaudio.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_count4.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/count4.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_pahu.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/pahu.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.soundtt.app-merged_res-38:/layout_rhythmeazy.xml.flat",
-        "source": "com.example.soundtt.app-main-40:/layout/rhythmeazy.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_pahu.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/pahu.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/xml_backup_rules.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/xml/backup_rules.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_count2.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/count2.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_count5.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/count5.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_bgm.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/bgm.mp3"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_sippai.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/sippai.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_count2.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/count2.mp3"
+        "merged": "com.example.soundtt.app-merged_res-42:/layout_rhythmhard.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/layout/rhythmhard.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.example.soundtt.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.soundtt.app-main-44:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/raw_count4.mp3.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/raw/count4.mp3"
-    },
-    {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-38:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-40:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.soundtt.app-merged_res-42:/raw_rhythmrally1.mp3.flat",
+        "source": "com.example.soundtt.app-main-44:/raw/rhythmrally1.mp3"
     }
 ]
