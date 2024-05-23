@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.soundtt.ui.main.MainFragment
 import java.io.File
 
 class RhythmEazy : AppCompatActivity() {
@@ -35,13 +34,13 @@ class RhythmEazy : AppCompatActivity() {
         val tvgood: TextView = findViewById(R.id.tvgood)
         val tvbad: TextView = findViewById(R.id.tvbad)
         val btnpause: Button = findViewById(R.id.btnpause)
-        val logEazyStart: Button = findViewById(R.id.btnHardStart)
+        val logstart: Button = findViewById(R.id.btnstart)
         val btnback: Button = findViewById(R.id.btnback)
 
         // JudgeTimingFactoryを使ってViewModelのインスタンスを作成
         judgeTiming = ViewModelProvider(this, JudgeTimingFactory(this)).get(JudgeTiming::class.java)
 
-        logEazyStart.setOnClickListener {
+        logstart.setOnClickListener {
             // 音声を再生
             playSound()
 
@@ -78,18 +77,10 @@ class RhythmEazy : AppCompatActivity() {
         }
 
         btnback.setOnClickListener {
+
             judgeTiming.stopJudging()
-
-            supportFragmentManager.beginTransaction().apply {
-                remove(supportFragmentManager.findFragmentById(R.id.container)!!)
-                replace(R.id.container, MainFragment.newInstance())
-                commit()
-            }
+            finish()
         }
-
-
-
-
     }
 
     private fun playSound() {

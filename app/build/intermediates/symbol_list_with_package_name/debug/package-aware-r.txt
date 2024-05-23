@@ -2949,10 +2949,10 @@ id bounceEnd
 id bounceStart
 id btnEazy
 id btnHard
-id btnHardStart
 id btnNormal
 id btnback
 id btnpause
+id btnstart
 id buttonPanel
 id button_advertise
 id button_discovery

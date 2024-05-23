@@ -56,180 +56,182 @@
 27-->[androidx.core:core:1.9.0] /Users/k21146kk/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 28
 29    <application
-29-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:16:5-60:19
+29-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:16:5-61:19
 30        android:allowBackup="true"
 30-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:17:9-35
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 31-->[androidx.core:core:1.9.0] /Users/k21146kk/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 32        android:dataExtractionRules="@xml/data_extraction_rules"
-32-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:18:9-65
+32-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:19:9-65
 33        android:debuggable="true"
-34        android:extractNativeLibs="false"
-35        android:fullBackupContent="@xml/backup_rules"
-35-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:19:9-54
-36        android:icon="@mipmap/ic_launcher"
-36-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:20:9-43
-37        android:label="@string/app_name"
-37-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:21:9-41
-38        android:supportsRtl="true"
-38-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:22:9-35
-39        android:testOnly="true"
-40        android:theme="@style/Theme.SoundTT" >
-40-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:23:9-45
-41        <service
-41-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:25:9-28:40
-42            android:name="com.example.soundtt.MusicService"
-42-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:26:13-41
-43            android:enabled="true"
-43-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:27:13-35
-44            android:exported="false" />
-44-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:28:13-37
-45
-46        <activity
-46-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:32:9-41:20
-47            android:name="com.example.soundtt.MainActivity"
-47-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:33:13-41
-48            android:exported="true" >
-48-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:34:13-36
-49            <intent-filter>
-49-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:35:13-40:29
-50                <action android:name="android.intent.action.MAIN" />
-50-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:36:17-69
-50-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:36:25-66
-51
-52                <category android:name="android.intent.category.LAUNCHER" />
-52-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:38:17-77
-52-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:38:27-74
-53            </intent-filter>
-54        </activity>
-55        <activity
-55-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:42:9-45:20
-56            android:name="com.example.soundtt.RhythmEazy"
-56-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:43:13-39
-57            android:exported="false" >
-57-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:44:13-37
-58        </activity>
-59        <activity
-59-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:46:9-49:20
-60            android:name="com.example.soundtt.RhythmNormal"
-60-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:47:13-41
-61            android:exported="false" >
-61-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:48:13-37
-62        </activity>
-63        <activity
-63-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:50:9-53:20
-64            android:name="com.example.soundtt.RhythmHard"
-64-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:51:13-39
-65            android:exported="false" >
-65-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:52:13-37
-66        </activity>
-67
-68        <!-- <activity -->
-69        <!-- android:name=".MainSound" -->
-70        <!-- android:exported="false"> -->
-71        <!-- </activity> -->
-72        <!-- 画面遷移先増やす場合はActivity追加で -->
-73        <activity
-73-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:12:9-16:66
-74            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
-74-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:13:13-86
-75            android:exported="false"
-75-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:14:13-37
-76            android:label=""
-76-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:15:13-29
-77            android:theme="@style/EasyPermissions.Transparent" />
-77-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:16:13-63
-78
-79        <service
-79-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:10:9-13:105
-80            android:name="com.google.android.gms.nearby.exposurenotification.WakeUpService"
-80-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:11:13-92
-81            android:exported="true"
-81-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:12:13-36
-82            android:permission="com.google.android.gms.nearby.exposurenotification.EXPOSURE_CALLBACK" />
-82-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:13:13-102
-83
-84        <activity
-84-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
-85            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-85-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
-86            android:exported="false"
-86-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
-87            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-87-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
-88
-89        <meta-data
-89-->[com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
-90            android:name="com.google.android.gms.version"
-90-->[com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
-91            android:value="@integer/google_play_services_version" />
-91-->[com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
-92
-93        <provider
-93-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-94            android:name="androidx.startup.InitializationProvider"
-94-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-95            android:authorities="com.example.soundtt.androidx-startup"
-95-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
-96            android:exported="false" >
-96-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
-97            <meta-data
-97-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-98                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-98-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
-99                android:value="androidx.startup" />
-99-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
-100            <meta-data
-100-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
-101                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-101-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
-102                android:value="androidx.startup" />
-102-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
-103            <meta-data
-103-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-104                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-104-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-105                android:value="androidx.startup" />
-105-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-106        </provider>
-107
-108        <receiver
-108-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-109            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-109-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-110            android:directBootAware="false"
-110-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-111            android:enabled="true"
-111-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-112            android:exported="true"
-112-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-113            android:permission="android.permission.DUMP" >
-113-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-114            <intent-filter>
-114-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-115                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-115-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-115-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-116            </intent-filter>
-117            <intent-filter>
-117-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-118                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-118-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-118-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-119            </intent-filter>
-120            <intent-filter>
-120-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-121                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-121-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-121-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-122            </intent-filter>
-123            <intent-filter>
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-124                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-125            </intent-filter>
-126        </receiver>
-127    </application>
-128
-129</manifest>
+34        android:enableOnBackInvokedCallback="true"
+34-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:18:9-51
+35        android:extractNativeLibs="false"
+36        android:fullBackupContent="@xml/backup_rules"
+36-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:20:9-54
+37        android:icon="@mipmap/ic_launcher"
+37-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:21:9-43
+38        android:label="@string/app_name"
+38-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:22:9-41
+39        android:supportsRtl="true"
+39-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:23:9-35
+40        android:testOnly="true"
+41        android:theme="@style/Theme.SoundTT" >
+41-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:24:9-45
+42        <service
+42-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:26:9-29:40
+43            android:name="com.example.soundtt.MusicService"
+43-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:27:13-41
+44            android:enabled="true"
+44-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:28:13-35
+45            android:exported="false" />
+45-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:29:13-37
+46
+47        <activity
+47-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:33:9-42:20
+48            android:name="com.example.soundtt.MainActivity"
+48-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:34:13-41
+49            android:exported="true" >
+49-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:35:13-36
+50            <intent-filter>
+50-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:36:13-41:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:37:17-69
+51-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:37:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:39:17-77
+53-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:39:27-74
+54            </intent-filter>
+55        </activity>
+56        <activity
+56-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:43:9-46:20
+57            android:name="com.example.soundtt.RhythmEazy"
+57-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:44:13-39
+58            android:exported="false" >
+58-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:45:13-37
+59        </activity>
+60        <activity
+60-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:47:9-50:20
+61            android:name="com.example.soundtt.RhythmNormal"
+61-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:48:13-41
+62            android:exported="false" >
+62-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:49:13-37
+63        </activity>
+64        <activity
+64-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:51:9-54:20
+65            android:name="com.example.soundtt.RhythmHard"
+65-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:52:13-39
+66            android:exported="false" >
+66-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:53:13-37
+67        </activity>
+68
+69        <!-- <activity -->
+70        <!-- android:name=".MainSound" -->
+71        <!-- android:exported="false"> -->
+72        <!-- </activity> -->
+73        <!-- 画面遷移先増やす場合はActivity追加で -->
+74        <activity
+74-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:12:9-16:66
+75            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+75-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:13:13-86
+76            android:exported="false"
+76-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:14:13-37
+77            android:label=""
+77-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:15:13-29
+78            android:theme="@style/EasyPermissions.Transparent" />
+78-->[pub.devrel:easypermissions:3.0.0] /Users/k21146kk/.gradle/caches/transforms-3/0e4f3ea6ba6be266d6cafc635fab8ea2/transformed/easypermissions-3.0.0/AndroidManifest.xml:16:13-63
+79
+80        <service
+80-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:10:9-13:105
+81            android:name="com.google.android.gms.nearby.exposurenotification.WakeUpService"
+81-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:11:13-92
+82            android:exported="true"
+82-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:12:13-36
+83            android:permission="com.google.android.gms.nearby.exposurenotification.EXPOSURE_CALLBACK" />
+83-->[com.google.android.gms:play-services-nearby:18.3.0] /Users/k21146kk/.gradle/caches/transforms-3/2651dfaace362c1d22c3e115b6908e39/transformed/play-services-nearby-18.3.0/AndroidManifest.xml:13:13-102
+84
+85        <activity
+85-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+86            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+86-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+87            android:exported="false"
+87-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+88            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+88-->[com.google.android.gms:play-services-base:18.0.1] /Users/k21146kk/.gradle/caches/transforms-3/8ca989c75448dd2f78997c3f5666b57c/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+89
+90        <meta-data
+90-->[com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+91            android:name="com.google.android.gms.version"
+91-->[com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+92            android:value="@integer/google_play_services_version" />
+92-->[com.google.android.gms:play-services-basement:18.0.0] /Users/k21146kk/.gradle/caches/transforms-3/d649d9c67c5c3249d68797ba31f23ddd/transformed/play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+93
+94        <provider
+94-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+95            android:name="androidx.startup.InitializationProvider"
+95-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+96            android:authorities="com.example.soundtt.androidx-startup"
+96-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+97            android:exported="false" >
+97-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+98            <meta-data
+98-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+99                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+99-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+100                android:value="androidx.startup" />
+100-->[androidx.emoji2:emoji2:1.2.0] /Users/k21146kk/.gradle/caches/transforms-3/66814d0c9c223a08105bc116aeb53dd5/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+101            <meta-data
+101-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+102                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+102-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+103                android:value="androidx.startup" />
+103-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/k21146kk/.gradle/caches/transforms-3/16c5355b9a526507fa55080a4f407e10/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+104            <meta-data
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+105                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+106                android:value="androidx.startup" />
+106-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+107        </provider>
+108
+109        <receiver
+109-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+110            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+111            android:directBootAware="false"
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+112            android:enabled="true"
+112-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+113            android:exported="true"
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+114            android:permission="android.permission.DUMP" >
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+115            <intent-filter>
+115-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+116                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+117            </intent-filter>
+118            <intent-filter>
+118-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+119                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+119-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+119-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+120            </intent-filter>
+121            <intent-filter>
+121-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+122                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+122-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+122-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+123            </intent-filter>
+124            <intent-filter>
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+125                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+125-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+125-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/k21146kk/.gradle/caches/transforms-3/5c2a5cebb047ba9aa4b841a7156d494f/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+126            </intent-filter>
+127        </receiver>
+128    </application>
+129
+130</manifest>

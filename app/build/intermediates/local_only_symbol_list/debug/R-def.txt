@@ -14,10 +14,10 @@ id SeekBar_Hit
 id SeekBar_Swing
 id btnEazy
 id btnHard
-id btnHardStart
 id btnNormal
 id btnback
 id btnpause
+id btnstart
 id button_advertise
 id button_discovery
 id container

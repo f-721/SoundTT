@@ -16,15 +16,15 @@ class RhythmHard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rhythmeazy)
 
-        val tvex: TextView = findViewById(R.id.tvex)
+        //val tvex: TextView = findViewById(R.id.tvex)
         val tvgreat: TextView = findViewById(R.id.tvgreat)
         val tvgood: TextView = findViewById(R.id.tvgood)
         val tvbad: TextView = findViewById(R.id.tvbad)
         val btnpause: Button = findViewById(R.id.btnpause)
-        val logEazyStart: Button = findViewById(R.id.btnHardStart)
+        val logstart: Button = findViewById(R.id.btnstart)
         val btnback: Button = findViewById(R.id.btnback)
 
-        logEazyStart.setOnClickListener {
+        logstart.setOnClickListener {
             // MediaPlayerのインスタンスを作成
             mediaPlayer = MediaPlayer.create(this, R.raw.rhythmrally1)
             // 音声を再生

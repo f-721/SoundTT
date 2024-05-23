@@ -4,12 +4,12 @@
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-44:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-44:/mipmap-xhdpi/ic_launcher.webp"
-    },
-    {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-44:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-44:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/layout_fragment_main.xml.flat",
@@ -58,6 +58,10 @@
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-44:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.soundtt.app-merged_res-42:/layout_rhythmnormal.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/layout/rhythmnormal.xml"
     },
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/raw_pahu.mp3.flat",
@@ -110,6 +114,10 @@
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-main-44:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.soundtt.app-merged_res-42:/layout_rhythmhard.xml.flat",
+        "source": "com.example.soundtt.app-main-44:/layout/rhythmhard.xml"
     },
     {
         "merged": "/Users/k21146kk/.gradle/daemon/7.5/com.example.soundtt.app-merged_res-42:/mipmap-hdpi_ic_launcher.webp.flat",

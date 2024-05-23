@@ -20,7 +20,7 @@ class MusicService : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.rhythmeazy, container, false)
 
-        btnStartEazy = rootView.findViewById<Button>(R.id.btnHardStart)
+        btnStartEazy = rootView.findViewById<Button>(R.id.btnstart)
         btnPause = rootView.findViewById<Button>(R.id.btnpause)
 
         // MediaPlayerオブジェクトを初期化
