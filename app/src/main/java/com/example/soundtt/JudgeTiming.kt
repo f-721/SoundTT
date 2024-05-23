@@ -1,5 +1,6 @@
 package com.example.soundtt
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class JudgeTiming() : ViewModel() {
+class JudgeTiming(context: Context) : ViewModel() {
 
     private val _judgement = MutableLiveData<String>()
     val judgement: LiveData<String> = _judgement

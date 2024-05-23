@@ -8,7 +8,7 @@ class JudgeTimingFactory(private val context: Context) : ViewModelProvider.Facto
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(JudgeTiming::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return JudgeTiming() as T
+            return JudgeTiming(context) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

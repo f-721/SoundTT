@@ -81,10 +81,12 @@ class RhythmEazy : AppCompatActivity() {
             judgeTiming.stopJudging()
 
             supportFragmentManager.beginTransaction().apply {
+                remove(supportFragmentManager.findFragmentById(R.id.container)!!)
                 replace(R.id.container, MainFragment.newInstance())
                 commit()
             }
         }
+
 
 
 
