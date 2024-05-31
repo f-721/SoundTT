@@ -2950,6 +2950,8 @@ id bounceStart
 id btnEazy
 id btnHard
 id btnNormal
+id btn_advertise
+id btn_discovery
 id btnback
 id btnpause
 id btnstart

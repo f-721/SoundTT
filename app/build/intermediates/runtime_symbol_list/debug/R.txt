@@ -2949,6 +2949,8 @@ int id bounceStart 0x7f080066
 int id btnEazy 0x7f080067
 int id btnHard 0x7f080068
 int id btnNormal 0x7f08006a
+int id btn_advertise 0x7f080209
+int id btn_discovery 0x7f08020a
 int id btnback 0x7f08006b
 int id btnpause 0x7f08006c
 int id btnstart 0x7f080206

@@ -35,7 +35,9 @@ class RhythmEazy : AppCompatActivity() {
         val tvbad: TextView = findViewById(R.id.tvbad)
         val btnpause: Button = findViewById(R.id.btnpause)
         val logstart: Button = findViewById(R.id.btnstart)
-        val btnback: Button = findViewById(R.id.btnback)
+        val logback: Button = findViewById(R.id.btnback)
+        val btnadvertise: Button = findViewById(R.id.btn_advertise)
+        val btndiscovery: Button = findViewById(R.id.btn_discovery)
 
         // JudgeTimingFactoryを使ってViewModelのインスタンスを作成
         judgeTiming = ViewModelProvider(this, JudgeTimingFactory(this)).get(JudgeTiming::class.java)
@@ -68,7 +70,7 @@ class RhythmEazy : AppCompatActivity() {
                 }
             })
 
-            showToast("録音開始")
+            showToast("開始")
         }
 
         btnpause.setOnClickListener {
@@ -76,12 +78,23 @@ class RhythmEazy : AppCompatActivity() {
             showPauseDialog()
         }
 
-        btnback.setOnClickListener {
+        logback.setOnClickListener {
 
             judgeTiming.stopJudging()
             finish()
         }
+
+        btnadvertise.setOnClickListener {
+            //音声用端末との接続アルゴリズム
+        }
+
+        btndiscovery.setOnClickListener {
+            //音声用端末との切断アルゴリズム
+        }
     }
+
+
+
 
     private fun playSound() {
         mediaPlayer.apply {

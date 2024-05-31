@@ -34,16 +34,28 @@ class JudgeTiming(context: Context) : ViewModel() {
     fun startJudging() {
         job = CoroutineScope(Dispatchers.Main).launch {
             while (isActive) {
-                delay(1600)
-                val timeDiff = System.currentTimeMillis() - lastHitTime
+                delay(2000)
+
+                 var nowtime = System.currentTimeMillis()
+
+                // Check the time difference if there's a recorded hit
+                val timeDiff = if (lastHitTime != 0L) {
+                    nowtime - lastHitTime
+                } else {
+                    2001L
+                }
                 Log.d("JudgeTiming", "Time difference: $timeDiff ms")
 
-                lastHitTime = System.currentTimeMillis()
-
                 when {
-                    timeDiff <= 2000 -> _judgement.postValue("GREAT")
-                    timeDiff <= 3000 -> _judgement.postValue("GOOD")
-                    else -> _judgement.postValue("BAD")
+                    timeDiff in 1..1000 -> _judgement.postValue("GREAT")
+                    timeDiff in 1001..1200 -> _judgement.postValue("GOOD")
+                    timeDiff > 1200 -> _judgement.postValue("BAD")
+                    else -> _judgement.postValue("NO HIT")
+                }
+
+                // Reset lastHitTime if more than 2 seconds have passed
+                if (timeDiff > 2000) {
+                    lastHitTime = 0L
                 }
             }
         }
@@ -54,12 +66,11 @@ class JudgeTiming(context: Context) : ViewModel() {
         accEstimation.isHit.removeObserver(hitObserver)
     }
 
-    private var lastHitTime = System.currentTimeMillis()
+    private var lastHitTime = 0L
 
     private fun recordHit() {
-        val currentTime = System.currentTimeMillis()
-        Log.d("JudgeTiming", "Hit recorded at: $currentTime")
-        lastHitTime = currentTime
+        lastHitTime = System.currentTimeMillis()
+        Log.d("JudgeTiming", "Hit recorded at: $lastHitTime")
     }
 
     override fun onCleared() {

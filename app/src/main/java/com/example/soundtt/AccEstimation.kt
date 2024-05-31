@@ -103,6 +103,7 @@ class AccEstimation {
                     bl_onswing = true
                     _isSwing.postValue(true)
                     Log.d("Estimation", "diff_num = $diffnum")
+
                 }
                 min_acc = max_acc
                 bl_swing_updown = false
@@ -117,15 +118,4 @@ class AccEstimation {
             }
         }
     }
-
-//    fun accTest(x: Float, y: Float, z: Float) {
-//        val maxNum = maxOf(x, y, z)
-//        val maxVar = when (maxNum) {
-//            x -> "x"
-//            y -> "y"
-//            z -> "z"
-//            else -> "Unknown"
-//        }
-//        _accTest.postValue(maxVar)
-//    }
 }
