@@ -1,12 +1,14 @@
 package com.example.soundtt
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -21,8 +23,13 @@ class RhythmEazy : AppCompatActivity() {
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var mediaRecorder: MediaRecorder
     private var bufferSize: Int = 0
-
     private lateinit var judgeTiming: JudgeTiming
+
+    lateinit var accSensor: AccSensor
+    // todo AudioSensor
+    lateinit var audioSensor: AudioSensor
+    // todo SoundPlayer
+    lateinit var nearBy: NearBy
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +53,10 @@ class RhythmEazy : AppCompatActivity() {
             // 音声を再生
             playSound()
 
+            start(this)
+
             // 判定を開始
-            judgeTiming.startJudging()
+//            judgeTiming.startJudging()
 
             // ヒット判定の結果を観察
             judgeTiming.judgement.observe(this, Observer { judgement ->
@@ -80,7 +89,8 @@ class RhythmEazy : AppCompatActivity() {
 
         logback.setOnClickListener {
 
-            judgeTiming.stopJudging()
+//            judgeTiming.stopJudging()
+            stop()
             finish()
         }
 
@@ -152,6 +162,22 @@ class RhythmEazy : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun start(context: Context) {
+        accSensor = AccSensor(context)
+        accSensor.start()
+        audioSensor = AudioSensor()
+        audioSensor.start(context)
+        nearBy = NearBy(context)
+
+        Log.d("MainViewModel","うわああああ")
+
+    }
+
+    fun stop() {
+        accSensor.stop()
+        audioSensor.stop()
     }
 
     override fun onDestroy() {

@@ -82,7 +82,7 @@ class AccEstimation {
                     Log.d("Estimation", "ヒットしました")
                     Log.d("Estimation", "Hit detected at time: $lastHitTimeMillis with acc_num = $acc_num")
                     _isHit.postValue(true)
-                    //Log.d("Estimation", "${isHit.value} の中身")
+                    Log.d("Estimation", "${isHit.value} の中身")
                 }
             } else {
                 hit_keep_thirty += 1

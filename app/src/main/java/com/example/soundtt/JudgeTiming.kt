@@ -13,13 +13,13 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 
-class JudgeTiming : ViewModel() {
+class JudgeTiming(accEstimation: AccEstimation) : ViewModel() {
 
     private val _judgement = MutableLiveData<String>()
     val judgement: LiveData<String> = _judgement
 
     private val accEstimation = AccEstimation()
-    private var isHitJudge = MutableLiveData<Boolean>(accEstimation.isHit.value)
+    //private var isHitJudge = MutableLiveData<Boolean>(accEstimation.isHit.value)
     private var job: Job? = null
 
     private var lastHitTime = 0L
@@ -28,7 +28,7 @@ class JudgeTiming : ViewModel() {
         if (isHit) {
             recordHit()
         }
-        Log.d("JudgeTiming","isHitに変更あり" + "$isHit")
+        Log.d("JudgeTiming","isHitに変更あり + " + "$isHit")
     }
 
     private val lastHitTimeObserver = Observer<Long> { newLastHitTime ->
@@ -57,7 +57,7 @@ class JudgeTiming : ViewModel() {
                     2001L
                 }
                 Log.d("JudgeTiming", "-------------------")
-                Log.d("JudgeTiming", "${isHitJudge.value}")
+//                Log.d("JudgeTiming", "${accEstimation.GetIsHit()}")
                 Log.d("JudgeTiming", "nowtime(判定時刻): $nowtime ms")
                 Log.d("JudgeTiming", "ヒット時刻: $lastHitTime ms")
                 Log.d("JudgeTiming", "Time difference(判定時刻-ヒット時刻): $timeDiff ms")

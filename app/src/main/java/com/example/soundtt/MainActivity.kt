@@ -3,10 +3,10 @@ package com.example.soundtt
 import android.Manifest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.soundtt.ui.main.MainFragment
-import pub.devrel.easypermissions.EasyPermissions
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.example.soundtt.ui.main.MainFragment
+import pub.devrel.easypermissions.EasyPermissions
 
 class MainActivity : AppCompatActivity() {
 
