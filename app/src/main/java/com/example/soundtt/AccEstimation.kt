@@ -19,10 +19,11 @@ class AccEstimation {
     private val _accTest = MutableLiveData<String>("")
     val accTest: LiveData<String> = _accTest
 
-    // ヒットの最後の時間を記録
-    private var lastHitTime = System.currentTimeMillis()
+    private val _lastHitTime = MutableLiveData<Long>(0L)
+    val lastHitTime: LiveData<Long> = _lastHitTime
 
-    //フィルターかけるようの宣言
+    private var lastHitTimeMillis = 0L
+
     var timeflag = true
     var difftime: Long = 1
     var starttime = LocalDateTime.now()
@@ -40,7 +41,6 @@ class AccEstimation {
 
     var hit = 0.2
     var swing = 1.0
-
 
     fun filter(x: Float, y: Float, z: Float): Triple<Double, Double, Long> {
         val (butterworth_hx, butterworth_hy, butterworth_hz) = listOf(Butterworth(), Butterworth(), Butterworth())
@@ -70,19 +70,24 @@ class AccEstimation {
     }
 
     fun estimationIsHit(acc_num: Double, nowtime: Long) {
-        // ヒット判定のロジックを実装
         if (nowtime > 4000) {
             if (bl_hit_updown) {
                 if (acc_num > hit) {
                     hit_hantei = true
                     bl_hit_updown = false
                     bl_onhit = true
-                    lastHitTime = System.currentTimeMillis() // ヒット判定のタイミングを記録
-                    Log.d("Estimation", "acc_num = $acc_num")
+                    lastHitTimeMillis = System.currentTimeMillis()
+                    _lastHitTime.postValue(lastHitTimeMillis)
+                    Log.d("AccEstimation", "lastHitTime LiveData updated: ${_lastHitTime.value}")
+                    Log.d("Estimation", "ヒットしました")
+                    Log.d("Estimation", "Hit detected at time: $lastHitTimeMillis with acc_num = $acc_num")
                     _isHit.postValue(true)
+                    //Log.d("Estimation", "${isHit.value} の中身")
                 }
             } else {
                 hit_keep_thirty += 1
+                //_isHit.postValue(false)
+                //Log.d("Estimation", "${isHit.value} の中身")
                 if (hit_keep_thirty >= 30) {
                     bl_hit_updown = true
                     hit_keep_thirty = 0
@@ -92,7 +97,6 @@ class AccEstimation {
     }
 
     fun estimationIsSwing(acc_num: Double) {
-        // スイング判定のロジックを実装
         if (acc_num > max_acc) {
             max_acc = acc_num
         } else if (acc_num < max_acc) {
@@ -102,8 +106,8 @@ class AccEstimation {
                     swing_hantei = true
                     bl_onswing = true
                     _isSwing.postValue(true)
-                    Log.d("Estimation", "diff_num = $diffnum")
-
+//                    Log.d("Estimation", "スイング判定")
+//                    Log.d("Estimation", "diff_num = $diffnum")
                 }
                 min_acc = max_acc
                 bl_swing_updown = false

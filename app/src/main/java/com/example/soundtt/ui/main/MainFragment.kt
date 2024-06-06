@@ -162,6 +162,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             // Eazyボタンがクリックされたときの処理をここに記述します
             val intent = Intent(context,RhythmEazy::class.java)
             startActivity(intent)
+            Log.d("MainFragment","画面が移行したよ！！")
         }
         logNormal.setOnClickListener {
             // Normalボタンがクリックされたときの処理をここに記述します
