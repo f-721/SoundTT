@@ -64,10 +64,19 @@ class JudgeTiming(accEstimation: AccEstimation) : ViewModel() {
                 Log.d("JudgeTiming", "-------------------")
 
                 when {
-                    timeDiff in 1..1000 -> _judgement.postValue("GREAT")
-                    timeDiff in 1001..1200 -> _judgement.postValue("GOOD")
-                    timeDiff > 1200 && lastHitTime != 0L -> _judgement.postValue("BAD")
-                    else -> _judgement.postValue("NO HIT")
+                    timeDiff in 1..1000 -> {
+                        _judgement.postValue("GREAT")
+                        Log.d("JudgeTiming", "Judgement: GREAT")
+                    }
+                    timeDiff in 1001..1200 -> {
+                        _judgement.postValue("GOOD")
+                        Log.d("JudgeTiming", "Judgement: GOOD")
+                    }
+                    timeDiff > 1200 && lastHitTime != 0L -> {
+                        _judgement.postValue("BAD")
+                        Log.d("JudgeTiming", "Judgement: BAD")
+                    }
+                    //else -> _judgement.postValue("NO HIT")
                 }
 
                 // Reset lastHitTime if more than 2 seconds have passed since last hit

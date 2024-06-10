@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.io.File
@@ -62,19 +63,22 @@ class RhythmEazy : AppCompatActivity() {
             judgeTiming.judgement.observe(this, Observer { judgement ->
                 when (judgement) {
                     "GREAT" -> {
-                        tvgreat.text = "GREAT"
-                        tvgood.text = ""
-                        tvbad.text = ""
+                        tvgreat.isVisible = true
+                        tvgood.isVisible = false
+                        tvbad.isVisible = false
+                        Log.d("RhythmEazy","GREAT")
                     }
                     "GOOD" -> {
-                        tvgreat.text = ""
-                        tvgood.text = "GOOD"
-                        tvbad.text = ""
+                        tvgreat.isVisible = false
+                        tvgood.isVisible = true
+                        tvbad.isVisible = false
+                        Log.d("RhythmEazy","GOOD")
                     }
                     "BAD" -> {
-                        tvgreat.text = ""
-                        tvgood.text = ""
-                        tvbad.text = "BAD"
+                        tvgreat.isVisible = false
+                        tvgood.isVisible = false
+                        tvbad.isVisible = true
+                        Log.d("RhythmEazy","GREAT")
                     }
                 }
             })
@@ -167,8 +171,8 @@ class RhythmEazy : AppCompatActivity() {
     fun start(context: Context) {
         accSensor = AccSensor(context)
         accSensor.start()
-        audioSensor = AudioSensor()
-        audioSensor.start(context)
+//        audioSensor = AudioSensor()
+//        audioSensor.start(context)
         nearBy = NearBy(context)
 
         Log.d("MainViewModel","うわああああ")
@@ -177,7 +181,7 @@ class RhythmEazy : AppCompatActivity() {
 
     fun stop() {
         accSensor.stop()
-        audioSensor.stop()
+//        audioSensor.stop()
     }
 
     override fun onDestroy() {

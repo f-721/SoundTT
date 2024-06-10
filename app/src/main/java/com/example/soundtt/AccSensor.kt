@@ -24,6 +24,7 @@ public class AccSensor(private val context: Context): SensorEventListener {
     //取得終了
     fun stop(){
         sensorManager.unregisterListener(this)
+        judgeTiming.stopJudging()
     }
 
     //これが動き続けてデータを取得する
