@@ -78,11 +78,11 @@ class AccEstimation {
                     bl_onhit = true
                     lastHitTimeMillis = System.currentTimeMillis()
                     _lastHitTime.postValue(lastHitTimeMillis)
-                    Log.d("AccEstimation", "lastHitTime LiveData updated: ${_lastHitTime.value}")
+//                    Log.d("AccEstimation", "lastHitTime LiveData updated: ${_lastHitTime.value}")
                     Log.d("Estimation", "ヒットしました")
-                    Log.d("Estimation", "Hit detected at time: $lastHitTimeMillis with acc_num = $acc_num")
+//                    Log.d("Estimation", "Hit detected at time: $lastHitTimeMillis with acc_num = $acc_num")
                     _isHit.postValue(true)
-                    Log.d("Estimation", "${isHit.value} の中身")
+//                    Log.d("Estimation", "${isHit.value} の中身")
                 }
             } else {
                 hit_keep_thirty += 1

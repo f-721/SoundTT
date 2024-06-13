@@ -86,63 +86,63 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         audioEstimation = AudioEstimation()
         //EstimationのaccTestの値が変わった瞬間テキスト表示
-        viewModel.accSensor.accEstimation.accTest.observe(viewLifecycleOwner){
-            Log.d("MainFragment" ,it)
-            logHit.text = it
-        }
-
-        // applicationのLiveDataを監視してヒットした瞬間
-        viewModel.accSensor.accEstimation.isHit.observe(viewLifecycleOwner){
-            Log.d("MainFragment", "hit? = $it")
-
-        }
-
-        viewModel.accSensor.accEstimation.isSwing.observe(viewLifecycleOwner){
-            Log.d("MainFragment", "swing? = $it")
-
-            if (it){
-                //logSwing.text = "Swing"
-
-                val hit = viewModel.accSensor.accEstimation._isHit.value
-                Log.d("MainFragment","Fragment_Hit? = $hit")
-                if (hit == true){
-
-//                    if (viewModel.nearBy.count == 1){
-//                        var volume = viewModel.audioSensor.getVolume()
+//        viewModel.accSensor.accEstimation.accTest.observe(viewLifecycleOwner){
+//            Log.d("MainFragment" ,it)
+//            logHit.text = it
+//        }
 //
-//                        playAudio = PlayAudio()
-//                        if (audioEstimation.dbEstimation(queue)) {
-//                            logDb.text = volume.toString()
-//                            playAudio.playAudio("issenn",requireContext())
-//                            playAudio.playAudio("bgm",requireContext())
-//                            Log.d("MainFragment","成功")
-//                        }else{
-//                            logDb.text = volume.toString()
-//                            playAudio.playAudio("pahu",requireContext())
-//                            playAudio.playAudio("sippai",requireContext())
-//                            Log.d("MainFragment","失敗")
+//        // applicationのLiveDataを監視してヒットした瞬間
+//        viewModel.accSensor.accEstimation.isHit.observe(viewLifecycleOwner){
+//            Log.d("MainFragment", "hit? = $it")
+//
+//        }
+//
+//        viewModel.accSensor.accEstimation.isSwing.observe(viewLifecycleOwner){
+//            Log.d("MainFragment", "swing? = $it")
+//
+//            if (it){
+//                //logSwing.text = "Swing"
+//
+////                val hit = viewModel.accSensor.accEstimation._isHit.value
+////                Log.d("MainFragment","Fragment_Hit? = $hit")
+////                if (hit == true){
+//
+////                    if (viewModel.nearBy.count == 1){
+////                        var volume = viewModel.audioSensor.getVolume()
+////
+////                        playAudio = PlayAudio()
+////                        if (audioEstimation.dbEstimation(queue)) {
+////                            logDb.text = volume.toString()
+////                            playAudio.playAudio("issenn",requireContext())
+////                            playAudio.playAudio("bgm",requireContext())
+////                            Log.d("MainFragment","成功")
+////                        }else{
+////                            logDb.text = volume.toString()
+////                            playAudio.playAudio("pahu",requireContext())
+////                            playAudio.playAudio("sippai",requireContext())
+////                            Log.d("MainFragment","失敗")
+////                        }
+////                    }
+//
+//
+//                    if (viewModel.nearBy.rally_flag == 0 && viewModel.nearBy.connectionflag == 1){
+//                        if (viewModel.nearBy.count != 0){
+//                            viewModel.nearBy.date_push()
 //                        }
 //                    }
+////                    logCount.text = viewModel.nearBy.count.toString()
+//                    viewModel.accSensor.accEstimation._isSwing.postValue(false)
+//                    viewModel.accSensor.accEstimation._isHit.postValue(false)
+//                    viewModel.accSensor.accEstimation.bl_onhit = false
+//                    viewModel.accSensor.accEstimation.bl_onswing = false
+//
+//                }
+//
+//            }else{
+//                //logSwing.text = "No Swing"
+//            }
 
-
-                    if (viewModel.nearBy.rally_flag == 0 && viewModel.nearBy.connectionflag == 1){
-                        if (viewModel.nearBy.count != 0){
-                            viewModel.nearBy.date_push()
-                        }
-                    }
-//                    logCount.text = viewModel.nearBy.count.toString()
-                    viewModel.accSensor.accEstimation._isSwing.postValue(false)
-                    viewModel.accSensor.accEstimation._isHit.postValue(false)
-                    viewModel.accSensor.accEstimation.bl_onhit = false
-                    viewModel.accSensor.accEstimation.bl_onswing = false
-
-                }
-
-            }else{
-                //logSwing.text = "No Swing"
-            }
-
-        }
+        //}
         //常に音量を表示する用
         viewModel.audioSensor.isVolume.observe(viewLifecycleOwner){
             if (queue.size >= maxSize) {
@@ -182,8 +182,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 // スライドバーの値が変更された時の処理
                 val selectedValue = progress*0.1
                 // ここで選択された値を使用して他の処理を行うことができます
-                viewModel.accSensor.accEstimation.hit = selectedValue
-                Log.d("MainFragment","EditHit?= ${viewModel.accSensor.accEstimation.hit}")
+               // viewModel.accSensor.accEstimation.hit = selectedValue
+//                Log.d("MainFragment","EditHit?= ${viewModel.accSensor.accEstimation.hit}")
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -199,8 +199,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 // スライドバーの値が変更された時の処理
                 val selectedValue = progress*0.1
                 // ここで選択された値を使用して他の処理を行うことができます
-                viewModel.accSensor.accEstimation.swing = selectedValue
-                Log.d("MainFragment","EditSwing?= ${viewModel.accSensor.accEstimation.swing}")
+               // viewModel.accSensor.accEstimation.swing = selectedValue
+//                Log.d("MainFragment","EditSwing?= ${viewModel.accSensor.accEstimation.swing}")
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {

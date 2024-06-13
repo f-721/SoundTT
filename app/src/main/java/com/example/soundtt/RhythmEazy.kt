@@ -15,22 +15,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import java.io.File
 
 class RhythmEazy : AppCompatActivity() {
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var mediaRecorder: MediaRecorder
     private var bufferSize: Int = 0
-    private lateinit var judgeTiming: JudgeTiming
+    //private lateinit var judgeTiming: JudgeTiming
 
     lateinit var accSensor: AccSensor
-    // todo AudioSensor
-    lateinit var audioSensor: AudioSensor
-    // todo SoundPlayer
     lateinit var nearBy: NearBy
+
+    lateinit var tvgreat: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,50 +34,49 @@ class RhythmEazy : AppCompatActivity() {
 
         mediaPlayer = MediaPlayer.create(this, R.raw.rhythmrally1)
 
-        val tvgreat: TextView = findViewById(R.id.tvgreat)
-        val tvgood: TextView = findViewById(R.id.tvgood)
-        val tvbad: TextView = findViewById(R.id.tvbad)
+        tvgreat = findViewById(R.id.tvgreat)
         val btnpause: Button = findViewById(R.id.btnpause)
         val logstart: Button = findViewById(R.id.btnstart)
         val logback: Button = findViewById(R.id.btnback)
         val btnadvertise: Button = findViewById(R.id.btn_advertise)
         val btndiscovery: Button = findViewById(R.id.btn_discovery)
 
-        // JudgeTimingFactoryを使ってViewModelのインスタンスを作成
-        judgeTiming = ViewModelProvider(this, JudgeTimingFactory(this)).get(JudgeTiming::class.java)
+        // ViewModelProviderを使ってViewModelのインスタンスを作成
+        //judgeTiming = ViewModelProvider(this, JudgeTimingFactory(AccEstimation())).get(JudgeTiming::class.java)
+
 
         logstart.setOnClickListener {
             // 音声を再生
             playSound()
-
             start(this)
 
             // 判定を開始
-//            judgeTiming.startJudging()
+            //judgeTiming.startJudging()
 
-            // ヒット判定の結果を観察
-            judgeTiming.judgement.observe(this, Observer { judgement ->
-                when (judgement) {
-                    "GREAT" -> {
-                        tvgreat.isVisible = true
-                        tvgood.isVisible = false
-                        tvbad.isVisible = false
-                        Log.d("RhythmEazy","GREAT")
-                    }
-                    "GOOD" -> {
-                        tvgreat.isVisible = false
-                        tvgood.isVisible = true
-                        tvbad.isVisible = false
-                        Log.d("RhythmEazy","GOOD")
-                    }
-                    "BAD" -> {
-                        tvgreat.isVisible = false
-                        tvgood.isVisible = false
-                        tvbad.isVisible = true
-                        Log.d("RhythmEazy","GREAT")
-                    }
-                }
-            })
+            // judgementの変更を観察
+//            judgeTiming.judgement.observe(this, Observer { judgement ->
+//                Log.d("RhythmEazy", "Judgement observed: $judgement")
+//                when (judgement) {
+//                    "GREAT" -> {
+//                        tvgreat.isVisible = true
+//                        tvgood.isVisible = false
+//                        tvbad.isVisible = false
+//                        Log.d("RhythmEazy", "GREAT")
+//                    }
+//                    "GOOD" -> {
+//                        tvgreat.isVisible = false
+//                        tvgood.isVisible = true
+//                        tvbad.isVisible = false
+//                        Log.d("RhythmEazy", "GOOD")
+//                    }
+//                    "BAD" -> {
+//                        tvgreat.isVisible = false
+//                        tvgood.isVisible = false
+//                        tvbad.isVisible = true
+//                        Log.d("RhythmEazy", "BAD")
+//                    }
+//                }
+//            })
 
             showToast("開始")
         }
@@ -92,8 +87,7 @@ class RhythmEazy : AppCompatActivity() {
         }
 
         logback.setOnClickListener {
-
-//            judgeTiming.stopJudging()
+            //judgeTiming.stopJudging()
             stop()
             finish()
         }
@@ -106,9 +100,6 @@ class RhythmEazy : AppCompatActivity() {
             //音声用端末との切断アルゴリズム
         }
     }
-
-
-
 
     private fun playSound() {
         mediaPlayer.apply {
@@ -150,7 +141,6 @@ class RhythmEazy : AppCompatActivity() {
         }
     }
 
-
     private fun showPauseDialog() {
         AlertDialog.Builder(this)
             .setTitle("PAUSE")
@@ -169,24 +159,18 @@ class RhythmEazy : AppCompatActivity() {
     }
 
     fun start(context: Context) {
-        accSensor = AccSensor(context)
+        accSensor = AccSensor(context,tvgreat)
         accSensor.start()
-//        audioSensor = AudioSensor()
-//        audioSensor.start(context)
         nearBy = NearBy(context)
-
-        Log.d("MainViewModel","うわああああ")
-
+        Log.d("MainViewModel", "うわああああ")
     }
 
     fun stop() {
         accSensor.stop()
-//        audioSensor.stop()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         mediaPlayer.release()
-
     }
 }

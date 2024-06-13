@@ -6,20 +6,22 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
+import android.widget.TextView
 
-public class AccSensor(private val context: Context): SensorEventListener {
+public class AccSensor(private val context: Context,private val tvgreat: TextView): SensorEventListener {
 
     //加速度センサーを始める時のおまじない
     val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     val AccSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
     val accEstimation = AccEstimation()
-    val judgeTiming = JudgeTiming(accEstimation)
+    val judgeTiming = JudgeTiming(accEstimation,tvgreat)
 
     //取得開始
     fun start(){
         Log.d("AccSensor","Music　Start")
         sensorManager.registerListener(this, AccSensor, SensorManager.SENSOR_DELAY_UI)
         judgeTiming.startJudging()
+
     }
     //取得終了
     fun stop(){
