@@ -13,6 +13,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <!-- 追加 -->
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+
     <application
         android:allowBackup="true"
         android:enableOnBackInvokedCallback="true"
@@ -28,16 +31,12 @@
             android:enabled="true"
             android:exported="false" />
 
-
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
         <activity
@@ -52,12 +51,5 @@
             android:name=".RhythmHard"
             android:exported="false">
         </activity>
-
-<!--        <activity-->
-<!--            android:name=".MainSound"-->
-<!--            android:exported="false">-->
-<!--        </activity>-->
-<!--画面遷移先増やす場合はActivity追加で-->
     </application>
-
 </manifest>

@@ -18,6 +18,9 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 追加 -->
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
@@ -65,12 +68,6 @@
             android:name="com.example.soundtt.RhythmHard"
             android:exported="false" >
         </activity>
-
-        <!-- <activity -->
-        <!-- android:name=".MainSound" -->
-        <!-- android:exported="false"> -->
-        <!-- </activity> -->
-        <!-- 画面遷移先増やす場合はActivity追加で -->
         <activity
             android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
             android:exported="false"

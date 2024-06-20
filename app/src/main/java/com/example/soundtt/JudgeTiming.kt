@@ -12,9 +12,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import kotlin.math.abs
 
-class JudgeTiming(private val accEstimation: AccEstimation,private val tvgreat: TextView) : ViewModel() {
+class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat: TextView) : ViewModel() {
 
     private val _judgement = MutableLiveData<String>()
     val judgement: LiveData<String> get() = _judgement
@@ -42,51 +41,54 @@ class JudgeTiming(private val accEstimation: AccEstimation,private val tvgreat: 
 
     fun startJudging() {
         job = viewModelScope.launch(Dispatchers.Main) {
-            delay(2000)
             while (isActive) {
                 delay(2000)
-                judgeHitTiming()
+                triggerJudging()
             }
         }
     }
-
     fun stopJudging() {
         job?.cancel()
         accEstimation.isHit.removeObserver(hitObserver)
         accEstimation.lastHitTime.removeObserver(lastHitTimeObserver)
     }
 
-    private fun judgeHitTiming() {
+    fun triggerJudging() {
         val nowtime = System.currentTimeMillis()
-        val timeDiff = if (lastHitTime != 0L) abs(nowtime - lastHitTime) else 2001L
+        val timeDiff =
+            if (lastHitTime != 0L)
+                (nowtime - lastHitTime) - 1000
+            else 2001L
 
         Log.d("JudgeTiming", "-------------------")
-        Log.d("JudgeTiming", "nowtime(判定時刻): $nowtime ms")
+        Log.d("JudgeTiming", "ゲーム内判定時刻: $nowtime ms")
         Log.d("JudgeTiming", "ヒット時刻: $lastHitTime ms")
-        Log.d("JudgeTiming", "Time difference(判定時刻-ヒット時刻): $timeDiff ms")
+        Log.d("JudgeTiming", "Time difference(ゲーム内判定時刻-ヒット時刻): $timeDiff ms")
 
         when {
-            timeDiff in 1..1000 ->{
-                //postJudgement("GREAT")
+            timeDiff in -500..500 -> {
                 tvgreat.text = "GREAT"
-                Log.d("JudgeTiming","GREATです")
+                Log.d("JudgeTiming", "GREATです")
             }
-            timeDiff in 1001..1700 ->{
-                //postJudgement("GOOD")
+            timeDiff in -750..-501 || timeDiff in 501..750 -> {
                 tvgreat.text = "GOOD"
-                Log.d("JudgeTiming","GOODです")
+                Log.d("JudgeTiming", "GOODです")
             }
-            timeDiff > 1700 && lastHitTime != 0L -> {
-                //postJudgement("BAD")
+            timeDiff in -999..-751 || timeDiff in 751..999 -> {
                 tvgreat.text = "BAD"
-                Log.d("JudgeTiming","BADです")
+                Log.d("JudgeTiming", "BADです")
+            }
+            else -> {
+                tvgreat.text = "MISS"
+                Log.d("JudgeTiming", "失敗(MISS)")
             }
         }
 
-        if (lastHitTime != 0L && timeDiff > 2000) {
+        if (lastHitTime != 0L && (timeDiff < -1000 || timeDiff > 1000 )) {
             lastHitTime = 0L
-            Log.d("JudgeTiming", "Last hit time reset to 0")
+            Log.d("JudgeTiming", "判定リセットします！")
         }
+        Log.d("JudgeTiming", "-------------------")
     }
 
     private fun postJudgement(judgement: String) {
@@ -97,7 +99,6 @@ class JudgeTiming(private val accEstimation: AccEstimation,private val tvgreat: 
 
     private fun recordHit() {
         lastHitTime = System.currentTimeMillis()
-//        Log.d("JudgeTiming", "Hit recorded at: $lastHitTime")
     }
 
     override fun onCleared() {
