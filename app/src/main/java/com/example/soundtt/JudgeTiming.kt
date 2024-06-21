@@ -13,7 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat: TextView) : ViewModel() {
+class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat: TextView,private  val nearBy: NearBy) : ViewModel() {
 
     private val _judgement = MutableLiveData<String>()
     val judgement: LiveData<String> get() = _judgement
@@ -83,6 +83,9 @@ class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat:
                 Log.d("JudgeTiming", "失敗(MISS)")
             }
         }
+
+        // `timeDiff` を Nearby に送信
+        nearBy.sendTimeDiff(timeDiff)
 
         if (lastHitTime != 0L && (timeDiff < -1000 || timeDiff > 1000 )) {
             lastHitTime = 0L

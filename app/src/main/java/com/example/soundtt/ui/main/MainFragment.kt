@@ -152,12 +152,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //            logCount.text = viewModel.nearBy.count.toString()
         }
 
-        logAdvertise.setOnClickListener {
-            viewModel.nearBy.advertise()
-        }
-        logDiscovery.setOnClickListener {
-            viewModel.nearBy.discovery()
-        }
+//        logAdvertise.setOnClickListener {
+//            viewModel.nearBy.advertise()
+//        }
+//        logDiscovery.setOnClickListener {
+//            viewModel.nearBy.Startdiscovery()
+//        }
         logEazy.setOnClickListener {
             // Eazyボタンがクリックされたときの処理をここに記述します
             val intent = Intent(context,RhythmEazy::class.java)

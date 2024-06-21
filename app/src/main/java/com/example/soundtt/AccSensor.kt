@@ -14,7 +14,8 @@ public class AccSensor(private val context: Context,private val tvgreat: TextVie
     val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     val AccSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
     val accEstimation = AccEstimation()
-    val judgeTiming = JudgeTiming(accEstimation,tvgreat)
+    val nearbyManager = NearBy(context)
+    val judgeTiming = JudgeTiming(accEstimation, tvgreat, nearbyManager)
 
     //取得開始
     fun start(){

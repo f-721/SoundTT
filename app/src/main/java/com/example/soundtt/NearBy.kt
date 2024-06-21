@@ -1,12 +1,16 @@
 package com.example.soundtt
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.util.Log
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.AdvertisingOptions
 import com.google.android.gms.nearby.connection.ConnectionInfo
 import com.google.android.gms.nearby.connection.ConnectionLifecycleCallback
 import com.google.android.gms.nearby.connection.ConnectionResolution
+import com.google.android.gms.nearby.connection.ConnectionsClient
 import com.google.android.gms.nearby.connection.ConnectionsStatusCodes
 import com.google.android.gms.nearby.connection.DiscoveredEndpointInfo
 import com.google.android.gms.nearby.connection.DiscoveryOptions
@@ -20,15 +24,35 @@ class NearBy(private val context: Context) {
     var SERVICE_ID = "atuo.nearby"
     var nickname = "atuo"
     val TAG = "myapp"
-    var rally_flag = 0
-    var count = 5
-    var startflag = 0
-    var connectionflag = 0
+    //    var rally_flag = 0
+//    var count = 5
+//    var startflag = 0
+//    var connectionflag = 0
+    private var connectionsClient: ConnectionsClient
+    private var isConnected: Boolean = false
+    private lateinit var endpointId: String
+
+    init {
+        connectionsClient = Nearby.getConnectionsClient(context)
+    }
+    fun initializeNearby() {
+        connectionsClient = Nearby.getConnectionsClient(context)
+    }
+
 
     private lateinit var playAudio: PlayAudio
 
     // 接続されたエンドポイントIDを保存するリスト
     private val connectedEndpoints = mutableListOf<String>()
+
+    fun sendTimeDiff(timeDiff: Long) {
+        if (::endpointId.isInitialized) {
+            val payload = Payload.fromBytes(timeDiff.toString().toByteArray())
+            Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
+        } else {
+            Log.d(TAG, "Endpoint ID is not initialized")
+        }
+    }
 
     fun advertise() {
         Log.d(TAG, "advertiseをタップ")
@@ -78,6 +102,7 @@ class NearBy(private val context: Context) {
     private val mConnectionLifecycleCallback = object : ConnectionLifecycleCallback() {
         override fun onConnectionInitiated(endpointId: String, connectionInfo: ConnectionInfo) {
             Log.d(TAG, "他の端末からコネクションのリクエストを受け取った")
+            this@NearBy.endpointId = endpointId
             Nearby.getConnectionsClient(context)
                 .acceptConnection(endpointId, mPayloadCallback)
         }
@@ -89,7 +114,7 @@ class NearBy(private val context: Context) {
                     Log.d(TAG, "コネクションが確立した。今後通信が可能。")
                     connectedEndpoints.add(endpointId)
                     Log.d(TAG, "通信成功")
-                    connectionflag = 1
+//                    connectionflag = 1
                 }
                 ConnectionsStatusCodes.STATUS_CONNECTION_REJECTED -> {
                     Log.d(TAG, "コネクションが拒否された時。通信はできない。")
@@ -111,48 +136,50 @@ class NearBy(private val context: Context) {
             when (payload.type) {
                 Payload.Type.BYTES -> {
                     val data = payload.asBytes()!!
-                    val countString = String(data)
-                    count = countString.toInt()
-                    rally_flag = 0
-                    startflag = 1
+//                    val countString = String(data)
+//                    count = countString.toInt()
+//                    rally_flag = 0
+//                    startflag = 1
                     Log.d(TAG, data.toString())
                     Log.d(TAG, "バイト配列を受け取った")
 
                     // 音を出す処理
-                    playAudio = PlayAudio()
-                    playAudio.playAudio("count$count", context)
+//                    playAudio = PlayAudio()
+//                    playAudio.playAudio("count$count", context)
                 }
+            }
+        }
+
+        fun startDiscovery() {
+            if (ContextCompat.checkSelfPermission(context, "android.permission.NEARBY_WIFI_DEVICES") == PackageManager.PERMISSION_GRANTED) {
+                val discoveryOptions = DiscoveryOptions.Builder().setStrategy(Strategy.P2P_CLUSTER).build()
+                connectionsClient.startDiscovery(
+                    context.packageName,
+                    object : EndpointDiscoveryCallback() {
+                        override fun onEndpointFound(endpointId: String, info: DiscoveredEndpointInfo) {
+                            // デバイスが見つかった時の処理
+                            Toast.makeText(context, "Endpoint found: $endpointId", Toast.LENGTH_SHORT).show()
+                        }
+
+                        override fun onEndpointLost(endpointId: String) {
+                            // デバイスが見つからなくなった時の処理
+                            Toast.makeText(context, "Endpoint lost: $endpointId", Toast.LENGTH_SHORT).show()
+                        }
+                    },
+                    discoveryOptions
+                ).addOnSuccessListener {
+                    Toast.makeText(context, "Discovery started", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener { e ->
+                    Toast.makeText(context, "Failed to start discovery: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                // 権限がない場合の処理
+                Toast.makeText(context, "NEARBY_WIFI_DEVICES permission is missing", Toast.LENGTH_SHORT).show()
             }
         }
 
         override fun onPayloadTransferUpdate(endpointId: String, update: PayloadTransferUpdate) {
             // 転送状態が更新された時の詳細は省略
         }
-    }
-
-    fun date_push() {
-        Log.d(TAG, "date_pushをタップ")
-
-        if (startflag == 1) {
-            count -= 1
-        } else {
-            startflag = 1
-        }
-
-        if (count != 0) {
-            playAudio = PlayAudio()
-            playAudio.playAudio("count$count", context)
-        }
-
-        val data = count.toString().toByteArray()
-        val payload = Payload.fromBytes(data)
-
-        // 全ての接続されたエンドポイントにデータを送信
-        for (endpointId in connectedEndpoints) {
-            Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
-        }
-        Log.d(TAG, "データを送った")
-
-        rally_flag = 1
     }
 }

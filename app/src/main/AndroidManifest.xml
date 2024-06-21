@@ -10,11 +10,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!-- 追加 -->
-    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +20,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="リズムラリー"
         android:supportsRtl="true"
         android:theme="@style/Theme.SoundTT"
         tools:targetApi="31">
