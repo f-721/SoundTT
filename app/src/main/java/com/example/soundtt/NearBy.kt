@@ -20,6 +20,7 @@ import com.google.android.gms.nearby.connection.PayloadCallback
 import com.google.android.gms.nearby.connection.PayloadTransferUpdate
 import com.google.android.gms.nearby.connection.Strategy
 
+
 class NearBy(private val context: Context) {
     var SERVICE_ID = "atuo.nearby"
     var nickname = "atuo"
@@ -45,9 +46,19 @@ class NearBy(private val context: Context) {
     // 接続されたエンドポイントIDを保存するリスト
     private val connectedEndpoints = mutableListOf<String>()
 
+    //判定に利用する時間を送信する用
     fun sendTimeDiff(timeDiff: Long) {
         if (::endpointId.isInitialized) {
             val payload = Payload.fromBytes(timeDiff.toString().toByteArray())
+            Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
+        } else {
+            Log.d(TAG, "Endpoint ID is not initialized")
+        }
+    }
+
+    fun sendJudgement(judgement: String) {
+        if (::endpointId.isInitialized) {
+            val payload = Payload.fromBytes(judgement.toByteArray())
             Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
         } else {
             Log.d(TAG, "Endpoint ID is not initialized")
@@ -114,6 +125,7 @@ class NearBy(private val context: Context) {
                     Log.d(TAG, "コネクションが確立した。今後通信が可能。")
                     connectedEndpoints.add(endpointId)
                     Log.d(TAG, "通信成功")
+                    Toast.makeText(context, "接続成功", Toast.LENGTH_SHORT).show()
 //                    connectionflag = 1
                 }
                 ConnectionsStatusCodes.STATUS_CONNECTION_REJECTED -> {

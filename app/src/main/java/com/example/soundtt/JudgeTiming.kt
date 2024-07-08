@@ -65,24 +65,30 @@ class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat:
         Log.d("JudgeTiming", "ヒット時刻: $lastHitTime ms")
         Log.d("JudgeTiming", "Time difference(ゲーム内判定時刻-ヒット時刻): $timeDiff ms")
 
-        when {
+        val judgement = when {
             timeDiff in -500..500 -> {
-                tvgreat.text = "GREAT"
                 Log.d("JudgeTiming", "GREATです")
+                "GREAT"
             }
             timeDiff in -750..-501 || timeDiff in 501..750 -> {
-                tvgreat.text = "GOOD"
                 Log.d("JudgeTiming", "GOODです")
+                "GOOD"
             }
             timeDiff in -999..-751 || timeDiff in 751..999 -> {
-                tvgreat.text = "BAD"
                 Log.d("JudgeTiming", "BADです")
+                "BAD"
             }
             else -> {
-                tvgreat.text = "MISS"
                 Log.d("JudgeTiming", "失敗(MISS)")
+                "MISS"
             }
         }
+
+        tvgreat.text = judgement
+        postJudgement(judgement)
+
+        // 判定を Nearby に送信
+        nearBy.sendJudgement(judgement)
 
         // `timeDiff` を Nearby に送信
         nearBy.sendTimeDiff(timeDiff)
