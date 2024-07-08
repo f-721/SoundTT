@@ -1,10 +1,10 @@
 package com.example.soundtt
 
 import android.content.Context
-import android.content.pm.PackageManager
+import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.AdvertisingOptions
 import com.google.android.gms.nearby.connection.ConnectionInfo
@@ -22,56 +22,107 @@ import com.google.android.gms.nearby.connection.Strategy
 
 class NearBy(private val context: Context) {
     var SERVICE_ID = "atuo.nearby"
-    var nickname = "atuo"
+    var nickname: String
     val TAG = "myapp"
-    //    var rally_flag = 0
-//    var count = 5
-//    var startflag = 0
-//    var connectionflag = 0
-    private var connectionsClient: ConnectionsClient
+    private var connectionsClient: ConnectionsClient = Nearby.getConnectionsClient(context)
+    //private var startSignalReceived = mutableSetOf<String>()
+    //private var connectionsClient: ConnectionsClient
     private var isConnected: Boolean = false
-    private lateinit var endpointId: String
+    lateinit var endpointId: String
 
     init {
         connectionsClient = Nearby.getConnectionsClient(context)
+        nickname = generateUniqueNickname(context)
     }
+
+    private fun generateUniqueNickname(context: Context): String {
+        //適当な名前決められるかなぁ
+        return "atuo_${Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)}"
+    }
+
+    fun isEndpointIdInitialized() = ::endpointId.isInitialized
+
     fun initializeNearby() {
         connectionsClient = Nearby.getConnectionsClient(context)
     }
 
+    //private lateinit var playAudio: PlayAudio
 
-    private lateinit var playAudio: PlayAudio
-
-    // 接続されたエンドポイントIDを保存するリスト
+    // ID保存！
     private val connectedEndpoints = mutableListOf<String>()
 
-    fun sendTimeDiff(timeDiff: Long) {
+
+//    fun sendTimeDiff(timeDiff: Long) {
+//        if (::endpointId.isInitialized) {
+//            val payload = Payload.fromBytes(timeDiff.toString().toByteArray())
+//            Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
+//        } else {
+//            Log.d(TAG, "Endpoint ID is not initialized")
+//        }
+//    }
+
+    fun sendHitTime(time: String) {
         if (::endpointId.isInitialized) {
-            val payload = Payload.fromBytes(timeDiff.toString().toByteArray())
+            val payload = Payload.fromBytes(time.toByteArray())
             Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
         } else {
-            Log.d(TAG, "Endpoint ID is not initialized")
+            Log.d(TAG, "ヒット時刻：EndpointIDが初期化されていません")
+        }
+    }
+
+    fun sendId(id: String) {
+        if (::endpointId.isInitialized) {
+            val payload = Payload.fromBytes(id.toByteArray())
+            Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
+        } else {
+            Log.d(TAG, "スマホID：EndpointIDが初期化されていません ")
+        }
+    }
+
+    fun sendPayload(payload: Payload) {
+        if (::endpointId.isInitialized) {
+            connectionsClient.sendPayload(endpointId, payload)
+                .addOnSuccessListener {
+                    Log.d(TAG, "ペイロードが正常に送信されました。")
+                }
+                .addOnFailureListener { e ->
+                    Log.e(TAG, "ペイロードの送信に失敗しました: ${e.message}")
+                }
+        } else {
+            Log.d(TAG, "エンドポイントIDが初期化されていませんよおおおおおお")
         }
     }
 
     fun advertise() {
-        Log.d(TAG, "advertiseをタップ")
-        Nearby.getConnectionsClient(context)
-            .startAdvertising(
-                nickname,
-                SERVICE_ID,
-                mConnectionLifecycleCallback,
-                AdvertisingOptions(Strategy.P2P_STAR)
-            )
-            .addOnSuccessListener {
-                Log.d(TAG, "Advertise開始した")
-            }
-            .addOnFailureListener {
-                Log.d(TAG, "Advertiseできなかった")
-            }
+        if (isConnected) {
+            Log.d(TAG, "既に接続済みです")
+            return
+        }
+        Log.d(TAG, "アドバタイズを開始します")
+        connectionsClient.startAdvertising(
+            nickname,
+            SERVICE_ID,
+            mConnectionLifecycleCallback,
+            AdvertisingOptions(Strategy.P2P_STAR)
+        ).addOnSuccessListener {
+            Log.d(TAG, "アドバタイズが開始されました")
+        }.addOnFailureListener { e ->
+            Log.d(TAG, "アドバタイズを開始できませんでした: ${e.localizedMessage}")
+        }
     }
 
+    private var isDiscovering = false // ディスカバリーの状態を追跡するフラグ
+
     fun discovery() {
+        if (isConnected) {
+            Log.d(TAG, "既に接続済みです")
+            return
+        }
+        if (isDiscovering) {
+            Log.d(TAG, "既にディスカバリーが開始されています")
+            return
+        }
+
         Log.d(TAG, "Discoveryをタップ")
         Nearby.getConnectionsClient(context)
             .startDiscovery(
@@ -81,10 +132,18 @@ class NearBy(private val context: Context) {
             )
             .addOnSuccessListener {
                 Log.d(TAG, "Discovery開始した")
+                isDiscovering = true // 成功時にフラグを更新
             }
-            .addOnFailureListener {
-                Log.d(TAG, "Discovery開始できなかった")
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Discovery開始できなかった: ${exception.message}")
+                if (exception is ApiException && exception.statusCode == ConnectionsStatusCodes.STATUS_ALREADY_DISCOVERING) {
+                    Log.d(TAG, "STATUS_ALREADY_DISCOVERING: 既にディスカバリーが実行中です")
+                }
             }
+    }
+
+    fun resetEndpointId() {
+        endpointId = null.toString()
     }
 
     private val mEndpointDiscoveryCallback = object : EndpointDiscoveryCallback() {
@@ -109,12 +168,14 @@ class NearBy(private val context: Context) {
 
         override fun onConnectionResult(endpointId: String, result: ConnectionResolution) {
             Log.d(TAG, "コネクションリクエストの結果を受け取った時")
+            this@NearBy.endpointId = endpointId // ここで初期化
             when (result.status.statusCode) {
                 ConnectionsStatusCodes.STATUS_OK -> {
                     Log.d(TAG, "コネクションが確立した。今後通信が可能。")
                     connectedEndpoints.add(endpointId)
                     Log.d(TAG, "通信成功")
-//                    connectionflag = 1
+                    Toast.makeText(context, "接続成功", Toast.LENGTH_SHORT).show()
+                    isConnected = true
                 }
                 ConnectionsStatusCodes.STATUS_CONNECTION_REJECTED -> {
                     Log.d(TAG, "コネクションが拒否された時。通信はできない。")
@@ -128,58 +189,60 @@ class NearBy(private val context: Context) {
         override fun onDisconnected(endpointId: String) {
             Log.d(TAG, "コネクションが切断された")
             connectedEndpoints.remove(endpointId)
+            isConnected = false
         }
+
     }
 
     private val mPayloadCallback = object : PayloadCallback() {
         override fun onPayloadReceived(endpointId: String, payload: Payload) {
             when (payload.type) {
                 Payload.Type.BYTES -> {
-                    val data = payload.asBytes()!!
-//                    val countString = String(data)
-//                    count = countString.toInt()
-//                    rally_flag = 0
-//                    startflag = 1
-                    Log.d(TAG, data.toString())
-                    Log.d(TAG, "バイト配列を受け取った")
+                    val data = payload.asBytes() ?: return
+                    val message = String(data)
+                    Log.d(TAG, "Received message: $message")
 
-                    // 音を出す処理
-//                    playAudio = PlayAudio()
-//                    playAudio.playAudio("count$count", context)
+                    // Determine type of message by prefix
+                    when {
+                        message.startsWith("TIME:") -> {
+                            val hitTime = message.removePrefix("TIME:")
+                            handleHitTime(hitTime)
+                        }
+                        message.startsWith("ID:") -> {
+                            val id = message.removePrefix("ID:")
+                            handleId(id)
+                        }
+                        else -> {
+                            Log.d(TAG, "Unknown message format: $message")
+                        }
+                    }
                 }
             }
         }
 
-        fun startDiscovery() {
-            if (ContextCompat.checkSelfPermission(context, "android.permission.NEARBY_WIFI_DEVICES") == PackageManager.PERMISSION_GRANTED) {
-                val discoveryOptions = DiscoveryOptions.Builder().setStrategy(Strategy.P2P_CLUSTER).build()
-                connectionsClient.startDiscovery(
-                    context.packageName,
-                    object : EndpointDiscoveryCallback() {
-                        override fun onEndpointFound(endpointId: String, info: DiscoveredEndpointInfo) {
-                            // デバイスが見つかった時の処理
-                            Toast.makeText(context, "Endpoint found: $endpointId", Toast.LENGTH_SHORT).show()
-                        }
-
-                        override fun onEndpointLost(endpointId: String) {
-                            // デバイスが見つからなくなった時の処理
-                            Toast.makeText(context, "Endpoint lost: $endpointId", Toast.LENGTH_SHORT).show()
-                        }
-                    },
-                    discoveryOptions
-                ).addOnSuccessListener {
-                    Toast.makeText(context, "Discovery started", Toast.LENGTH_SHORT).show()
-                }.addOnFailureListener { e ->
-                    Toast.makeText(context, "Failed to start discovery: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+        private fun handleHitTime(hitTime: String) {
+            Log.d(TAG, "Received hit time: $hitTime")
+            // Convert hitTime to Long and process it as needed
+            val hitTimeLong = hitTime.toLongOrNull()
+            if (hitTimeLong != null) {
+                // Process the hit time
             } else {
-                // 権限がない場合の処理
-                Toast.makeText(context, "NEARBY_WIFI_DEVICES permission is missing", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "Invalid hit time format: $hitTime")
             }
+        }
+
+        private fun handleId(id: String) {
+            Log.d(TAG, "Received ID: $id")
+            // Process the ID
         }
 
         override fun onPayloadTransferUpdate(endpointId: String, update: PayloadTransferUpdate) {
-            // 転送状態が更新された時の詳細は省略
+            // Handle payload transfer updates if needed
         }
+    }
+
+
+    private fun processReceivedMessage(message: String) {
+        Log.d(TAG, "Processing received message: $message")
     }
 }

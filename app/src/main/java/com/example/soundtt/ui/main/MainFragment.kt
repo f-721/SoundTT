@@ -159,18 +159,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //            viewModel.nearBy.Startdiscovery()
 //        }
         logEazy.setOnClickListener {
-            // Eazyボタンがクリックされたときの処理をここに記述します
             val intent = Intent(context,RhythmEazy::class.java)
             startActivity(intent)
             Log.d("MainFragment","画面が移行したよ！！")
         }
         logNormal.setOnClickListener {
-            // Normalボタンがクリックされたときの処理をここに記述します
             val intent = Intent(context,RhythmNormal::class.java)
             startActivity(intent)
         }
         logHard.setOnClickListener {
-            // Hardボタンがクリックされたときの処理をここに記述します
             val intent = Intent(context,RhythmHard::class.java)
             startActivity(intent)
         }

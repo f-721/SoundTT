@@ -3,12 +3,13 @@ package com.example.soundtt
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.android.gms.nearby.connection.Payload
 import uk.me.berndporr.iirj.Butterworth
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 import kotlin.math.sqrt
 
-class AccEstimation {
+class AccEstimation(private val nearBy: NearBy) {
 
     val _isHit = MutableLiveData<Boolean>(false)
     val isHit: LiveData<Boolean> = _isHit
@@ -78,21 +79,30 @@ class AccEstimation {
                     bl_onhit = true
                     lastHitTimeMillis = System.currentTimeMillis()
                     _lastHitTime.postValue(lastHitTimeMillis)
-//                    Log.d("AccEstimation", "lastHitTime LiveData updated: ${_lastHitTime.value}")
                     Log.d("Estimation", "ヒットしました")
-//                    Log.d("Estimation", "Hit detected at time: $lastHitTimeMillis with acc_num = $acc_num")
                     _isHit.postValue(true)
-//                    Log.d("Estimation", "${isHit.value} の中身")
+
+                    // ホストにデータを送信
+                    sendHitData()
                 }
             } else {
                 hit_keep_thirty += 1
-                //_isHit.postValue(false)
-                //Log.d("Estimation", "${isHit.value} の中身")
                 if (hit_keep_thirty >= 30) {
                     bl_hit_updown = true
                     hit_keep_thirty = 0
                 }
             }
+        }
+    }
+
+    private fun sendHitData() {
+        if (nearBy.isEndpointIdInitialized()) {
+            val message = "$lastHitTimeMillis:${nearBy.nickname}"
+            val payload = Payload.fromBytes(message.toByteArray())
+            nearBy.sendPayload(payload)
+            Log.d("Estimation", "ヒットデータ送信: $message")
+        } else {
+            Log.d("Estimation", "エンドポイントIDが初期化されてないので送信できません")
         }
     }
 

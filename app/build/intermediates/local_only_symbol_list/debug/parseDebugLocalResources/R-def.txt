@@ -18,11 +18,13 @@ id btnNormal
 id btn_advertise
 id btn_discovery
 id btnback
+id btndisconnect
 id btnpause
 id btnstart
 id button_advertise
 id button_discovery
 id container
+id countTextview
 id main
 id textView_Audio
 id textView_hit

@@ -13,7 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat: TextView,private  val nearBy: NearBy) : ViewModel() {
+class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat: TextView, private val nearBy: NearBy) : ViewModel() {
 
     private val _judgement = MutableLiveData<String>()
     val judgement: LiveData<String> get() = _judgement
@@ -29,8 +29,8 @@ class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat:
     }
 
     private val lastHitTimeObserver = Observer<Long> { newLastHitTime ->
-        lastHitTime = newLastHitTime
-        Log.d("JudgeTiming", "Observed lastHitTime: $newLastHitTime")
+        //lastHitTime = newLastHitTime
+        //Log.d("JudgeTiming", "Observed lastHitTime: $newLastHitTime")
     }
 
     init {
@@ -47,6 +47,7 @@ class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat:
             }
         }
     }
+
     fun stopJudging() {
         job?.cancel()
         accEstimation.isHit.removeObserver(hitObserver)
@@ -65,29 +66,36 @@ class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat:
         Log.d("JudgeTiming", "ヒット時刻: $lastHitTime ms")
         Log.d("JudgeTiming", "Time difference(ゲーム内判定時刻-ヒット時刻): $timeDiff ms")
 
-        when {
+        val judgement = when {
             timeDiff in -500..500 -> {
                 tvgreat.text = "GREAT"
                 Log.d("JudgeTiming", "GREATです")
+                "GREAT"
             }
             timeDiff in -750..-501 || timeDiff in 501..750 -> {
                 tvgreat.text = "GOOD"
                 Log.d("JudgeTiming", "GOODです")
+                "GOOD"
             }
             timeDiff in -999..-751 || timeDiff in 751..999 -> {
                 tvgreat.text = "BAD"
                 Log.d("JudgeTiming", "BADです")
+                "BAD"
             }
             else -> {
                 tvgreat.text = "MISS"
                 Log.d("JudgeTiming", "失敗(MISS)")
+                "MISS"
             }
         }
 
-        // `timeDiff` を Nearby に送信
-        nearBy.sendTimeDiff(timeDiff)
+//        // 判定結果を Nearby に送信
+//        nearBy.sendJudgement(judgement)
+//
+        // timeDiff を Nearby に送信
+            //nearBy.sendTimeDiff(timeDiff)
 
-        if (lastHitTime != 0L && (timeDiff < -1000 || timeDiff > 1000 )) {
+        if (lastHitTime != 0L && (timeDiff < -1000 || timeDiff > 1000)) {
             lastHitTime = 0L
             Log.d("JudgeTiming", "判定リセットします！")
         }
@@ -102,6 +110,12 @@ class JudgeTiming(private val accEstimation: AccEstimation, private val tvgreat:
 
     private fun recordHit() {
         lastHitTime = System.currentTimeMillis()
+        val hitTimeMessage = lastHitTime.toString()
+        val idMessage = nearBy.nickname
+
+        // Send hit time and ID separately
+        nearBy.sendHitTime(hitTimeMessage)
+        nearBy.sendId(idMessage)
     }
 
     override fun onCleared() {

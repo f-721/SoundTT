@@ -1,11 +1,12 @@
 package com.example.soundtt
 
 import android.Manifest
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
-import android.media.MediaRecorder
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.gms.nearby.Nearby
+import com.google.android.gms.nearby.connection.ConnectionsClient
+import com.google.android.gms.nearby.connection.Payload
 
 class RhythmEazy : AppCompatActivity() {
 
@@ -26,16 +30,27 @@ class RhythmEazy : AppCompatActivity() {
     )
 
     private lateinit var mediaPlayer: MediaPlayer
-    private lateinit var mediaRecorder: MediaRecorder
-    private lateinit var nearBy: NearBy
     private lateinit var tvgreat: TextView
     private lateinit var accSensor: AccSensor
+    private lateinit var accEstimation: AccEstimation
+    private lateinit var judgeTiming: JudgeTiming
+    private lateinit var nearBy: NearBy
+
+    private lateinit var connectionsClient: ConnectionsClient
+    private var startSignalSent = false // Flag to check if the start signal has been sent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rhythmeazy)
 
+        // Initialize
         tvgreat = findViewById(R.id.tvgreat)
+        nearBy = NearBy(this)
+        accEstimation = AccEstimation(nearBy)
+        judgeTiming = JudgeTiming(accEstimation, tvgreat, nearBy)
+        accSensor = AccSensor(this, tvgreat, accEstimation, nearBy, judgeTiming)
+
+        connectionsClient = Nearby.getConnectionsClient(this)
 
         if (allPermissionsGranted()) {
             initializeNearbyFunctionality()
@@ -50,11 +65,18 @@ class RhythmEazy : AppCompatActivity() {
         val logback: Button = findViewById(R.id.btnback)
         val btnadvertise: Button = findViewById(R.id.btn_advertise)
         val btndiscovery: Button = findViewById(R.id.btn_discovery)
+        val btndisconnect: Button = findViewById(R.id.btndisconnect) // New Disconnect button
 
         logstart.setOnClickListener {
-            playSound()
-            start(this)
-            showToast("開始")
+            if (!startSignalSent) {
+                start(this)
+                showToast("開始の信号を送信")
+                sendStartSignal()
+                startSignalSent = true // Update the flag after sending the signal
+            } else {
+                showToast("既に開始の信号を送信しています")
+                Log.d(TAG, "開始の信号を既に送信済みです")
+            }
         }
 
         btnpause.setOnClickListener {
@@ -73,11 +95,44 @@ class RhythmEazy : AppCompatActivity() {
         btndiscovery.setOnClickListener {
             nearBy.discovery()
         }
+
+        btndisconnect.setOnClickListener {
+            disconnect()
+        }
     }
 
     private fun initializeNearbyFunctionality() {
-        nearBy = NearBy(this)
         nearBy.initializeNearby()
+    }
+
+    private fun sendStartSignal() {
+        if (nearBy.isEndpointIdInitialized()) {
+            val payload = Payload.fromBytes("start".toByteArray())
+            connectionsClient.sendPayload(nearBy.endpointId, payload)
+            Log.d(TAG, "スタート信号を送信しました")
+        } else {
+            Log.d(TAG, "スタート信号を送信できませんでした")
+        }
+    }
+
+    private fun disconnect() {
+        if (nearBy.isEndpointIdInitialized()) {
+            connectionsClient.disconnectFromEndpoint(nearBy.endpointId)
+            showToast("接続を切断しました")
+            Log.d(TAG, "接続を切断しました")
+            nearBy.resetEndpointId() // Reset endpoint ID after disconnecting
+            restartNearby() // Restart discovery or advertising
+        } else {
+            showToast("切断する接続がありません")
+            Log.d(TAG, "切断する接続がありません")
+        }
+    }
+
+    private fun restartNearby() {
+        // Example of restarting discovery
+        nearBy.discovery()
+        // If you want to advertise instead, use:
+        // nearBy.advertise()
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
@@ -128,7 +183,6 @@ class RhythmEazy : AppCompatActivity() {
     }
 
     fun start(context: Context) {
-        accSensor = AccSensor(context, tvgreat)
         accSensor.start()
     }
 

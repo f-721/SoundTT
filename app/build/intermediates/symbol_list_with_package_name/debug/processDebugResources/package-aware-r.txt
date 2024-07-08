@@ -2953,6 +2953,7 @@ id btnNormal
 id btn_advertise
 id btn_discovery
 id btnback
+id btndisconnect
 id btnpause
 id btnstart
 id buttonPanel
@@ -2990,6 +2991,7 @@ id contiguous
 id continuousVelocity
 id coordinator
 id cos
+id countTextview
 id counterclockwise
 id cradle
 id currentState
