@@ -46,20 +46,9 @@ class NearBy(private val context: Context) {
         connectionsClient = Nearby.getConnectionsClient(context)
     }
 
-    //private lateinit var playAudio: PlayAudio
-
     // ID保存！
     private val connectedEndpoints = mutableListOf<String>()
 
-
-//    fun sendTimeDiff(timeDiff: Long) {
-//        if (::endpointId.isInitialized) {
-//            val payload = Payload.fromBytes(timeDiff.toString().toByteArray())
-//            Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
-//        } else {
-//            Log.d(TAG, "Endpoint ID is not initialized")
-//        }
-//    }
 
     fun sendHitTime(time: String) {
         if (::endpointId.isInitialized) {
