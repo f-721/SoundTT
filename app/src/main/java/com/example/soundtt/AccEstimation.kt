@@ -100,7 +100,7 @@ class AccEstimation(private val nearBy: NearBy) {
             val message = "$lastHitTimeMillis:${nearBy.nickname}"
             val payload = Payload.fromBytes(message.toByteArray())
             nearBy.sendPayload(payload)
-            Log.d("Estimation", "ヒットデータ送信: $message")
+            Log.d("Estimation", "ヒットデータをNearbyに送信: $message")
         } else {
             Log.d("Estimation", "エンドポイントIDが初期化されてないので送信できません")
         }

@@ -25,10 +25,9 @@ class NearBy(private val context: Context) {
     var nickname: String
     val TAG = "myapp"
     private var connectionsClient: ConnectionsClient = Nearby.getConnectionsClient(context)
-    //private var startSignalReceived = mutableSetOf<String>()
-    //private var connectionsClient: ConnectionsClient
     private var isConnected: Boolean = false
     lateinit var endpointId: String
+    private var isDiscovering = false // Discovery status flag
 
     init {
         connectionsClient = Nearby.getConnectionsClient(context)
@@ -36,7 +35,6 @@ class NearBy(private val context: Context) {
     }
 
     private fun generateUniqueNickname(context: Context): String {
-        //適当な名前決められるかなぁ
         return "atuo_${Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)}"
     }
 
@@ -49,24 +47,39 @@ class NearBy(private val context: Context) {
     // ID保存！
     private val connectedEndpoints = mutableListOf<String>()
 
-
     fun sendHitTime(time: String) {
         if (::endpointId.isInitialized) {
-            val payload = Payload.fromBytes(time.toByteArray())
+            val payload = Payload.fromBytes("TIME:$time".toByteArray())
+            Log.d(TAG, "送信するヒット時刻: $time")
             Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
+                .addOnSuccessListener {
+                    Log.d(TAG, "ヒット時刻が正常に送信されました: $time")
+                }
+                .addOnFailureListener { e ->
+                    Log.e(TAG, "ヒット時刻の送信に失敗しました: ${e.message}")
+                }
         } else {
             Log.d(TAG, "ヒット時刻：EndpointIDが初期化されていません")
         }
     }
 
+
     fun sendId(id: String) {
         if (::endpointId.isInitialized) {
-            val payload = Payload.fromBytes(id.toByteArray())
+            val payload = Payload.fromBytes("ID:$id".toByteArray())
+            Log.d(TAG, "送信するID: $id")
             Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
+                .addOnSuccessListener {
+                    Log.d(TAG, "IDが正常に送信されました: $id")
+                }
+                .addOnFailureListener { e ->
+                    Log.e(TAG, "IDの送信に失敗しました: ${e.message}")
+                }
         } else {
             Log.d(TAG, "スマホID：EndpointIDが初期化されていません ")
         }
     }
+
 
     fun sendPayload(payload: Payload) {
         if (::endpointId.isInitialized) {
@@ -87,20 +100,18 @@ class NearBy(private val context: Context) {
             Log.d(TAG, "既に接続済みです")
             return
         }
-        Log.d(TAG, "アドバタイズを開始します")
+        Log.d(TAG, "advertiseを開始します")
         connectionsClient.startAdvertising(
             nickname,
             SERVICE_ID,
             mConnectionLifecycleCallback,
             AdvertisingOptions(Strategy.P2P_STAR)
         ).addOnSuccessListener {
-            Log.d(TAG, "アドバタイズが開始されました")
+            Log.d(TAG, "advertiseが開始されました")
         }.addOnFailureListener { e ->
-            Log.d(TAG, "アドバタイズを開始できませんでした: ${e.localizedMessage}")
+            Log.d(TAG, "advertiseを開始できませんでした: ${e.localizedMessage}")
         }
     }
-
-    private var isDiscovering = false // ディスカバリーの状態を追跡するフラグ
 
     fun discovery() {
         if (isConnected) {
@@ -108,7 +119,7 @@ class NearBy(private val context: Context) {
             return
         }
         if (isDiscovering) {
-            Log.d(TAG, "既にディスカバリーが開始されています")
+            Log.d(TAG, "既にDiscoveryが開始されています")
             return
         }
 
@@ -126,7 +137,7 @@ class NearBy(private val context: Context) {
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Discovery開始できなかった: ${exception.message}")
                 if (exception is ApiException && exception.statusCode == ConnectionsStatusCodes.STATUS_ALREADY_DISCOVERING) {
-                    Log.d(TAG, "STATUS_ALREADY_DISCOVERING: 既にディスカバリーが実行中です")
+                    Log.d(TAG, "STATUS_ALREADY_DISCOVERING: 既にDiscoveryが実行中です")
                 }
             }
     }
@@ -137,6 +148,10 @@ class NearBy(private val context: Context) {
 
     private val mEndpointDiscoveryCallback = object : EndpointDiscoveryCallback() {
         override fun onEndpointFound(endpointId: String, discoveredEndpointInfo: DiscoveredEndpointInfo) {
+            if (isConnected) {
+                Log.d(TAG, "既に接続済みのため新しいエンドポイントを無視します")
+                return
+            }
             Log.d(TAG, "Advertise側を発見した")
             Nearby.getConnectionsClient(context)
                 .requestConnection(nickname, endpointId, mConnectionLifecycleCallback)
@@ -149,6 +164,11 @@ class NearBy(private val context: Context) {
 
     private val mConnectionLifecycleCallback = object : ConnectionLifecycleCallback() {
         override fun onConnectionInitiated(endpointId: String, connectionInfo: ConnectionInfo) {
+            if (isConnected) {
+                Log.d(TAG, "既に接続が確立されているため、新しいコネクションを拒否します")
+                Nearby.getConnectionsClient(context).rejectConnection(endpointId)
+                return
+            }
             Log.d(TAG, "他の端末からコネクションのリクエストを受け取った")
             this@NearBy.endpointId = endpointId
             Nearby.getConnectionsClient(context)
@@ -157,7 +177,6 @@ class NearBy(private val context: Context) {
 
         override fun onConnectionResult(endpointId: String, result: ConnectionResolution) {
             Log.d(TAG, "コネクションリクエストの結果を受け取った時")
-            this@NearBy.endpointId = endpointId // ここで初期化
             when (result.status.statusCode) {
                 ConnectionsStatusCodes.STATUS_OK -> {
                     Log.d(TAG, "コネクションが確立した。今後通信が可能。")
@@ -165,6 +184,9 @@ class NearBy(private val context: Context) {
                     Log.d(TAG, "通信成功")
                     Toast.makeText(context, "接続成功", Toast.LENGTH_SHORT).show()
                     isConnected = true
+
+                    // Stop discovery and advertising when connected
+                    stopDiscoveryAndAdvertising()
                 }
                 ConnectionsStatusCodes.STATUS_CONNECTION_REJECTED -> {
                     Log.d(TAG, "コネクションが拒否された時。通信はできない。")
@@ -179,8 +201,9 @@ class NearBy(private val context: Context) {
             Log.d(TAG, "コネクションが切断された")
             connectedEndpoints.remove(endpointId)
             isConnected = false
+            // フラグをリセット
+            (context as? RhythmEazy)?.resetStartSignalSent()
         }
-
     }
 
     private val mPayloadCallback = object : PayloadCallback() {
@@ -230,6 +253,18 @@ class NearBy(private val context: Context) {
         }
     }
 
+    private fun stopDiscoveryAndAdvertising() {
+        // Stop discovery
+        if (isDiscovering) {
+            connectionsClient.stopDiscovery()
+            isDiscovering = false
+            Log.d(TAG, "Discoveryを停止しました")
+        }
+
+        // Stop advertising
+        connectionsClient.stopAdvertising()
+        Log.d(TAG, "アドバタイズを停止しました")
+    }
 
     private fun processReceivedMessage(message: String) {
         Log.d(TAG, "Processing received message: $message")

@@ -119,6 +119,7 @@ class RhythmEazy : AppCompatActivity() {
         if (nearBy.isEndpointIdInitialized()) {
             connectionsClient.disconnectFromEndpoint(nearBy.endpointId)
             showToast("接続を切断しました")
+            resetStartSignalSent()
             Log.d(TAG, "接続を切断しました")
             nearBy.resetEndpointId() // Reset endpoint ID after disconnecting
             restartNearby() // Restart discovery or advertising
@@ -126,6 +127,11 @@ class RhythmEazy : AppCompatActivity() {
             showToast("切断する接続がありません")
             Log.d(TAG, "切断する接続がありません")
         }
+    }
+
+    fun resetStartSignalSent() {
+        startSignalSent = false
+        Log.d(TAG, "startSignalSentがfalseにリセットされました")
     }
 
     private fun restartNearby() {
