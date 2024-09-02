@@ -56,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.soundtt.RhythmEazy"
+            android:name="com.example.soundtt.RhythmEasy"
             android:exported="false" >
         </activity>
         <activity

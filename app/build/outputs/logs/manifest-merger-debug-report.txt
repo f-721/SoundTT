@@ -190,7 +190,7 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:38:17-77
 	android:name
 		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:38:27-74
-activity#com.example.soundtt.RhythmEazy
+activity#com.example.soundtt.RhythmEasy
 ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:41:9-44:20
 	android:exported
 		ADDED from /Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:43:13-37

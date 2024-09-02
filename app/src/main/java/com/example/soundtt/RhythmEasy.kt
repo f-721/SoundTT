@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -18,7 +19,7 @@ import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.ConnectionsClient
 import com.google.android.gms.nearby.connection.Payload
 
-class RhythmEazy : AppCompatActivity() {
+class RhythmEasy : AppCompatActivity() {
 
     private val REQUEST_CODE_PERMISSIONS = 1001
     private val REQUIRED_PERMISSIONS = arrayOf(
@@ -35,15 +36,17 @@ class RhythmEazy : AppCompatActivity() {
     private lateinit var accEstimation: AccEstimation
     private lateinit var judgeTiming: JudgeTiming
     private lateinit var nearBy: NearBy
+    private lateinit var idtextView: TextView
 
     private lateinit var connectionsClient: ConnectionsClient
     private var startSignalSent = false // Flag to check if the start signal has been sent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.rhythmeazy)
+        setContentView(R.layout.rhythmeasy)
 
-        // Initialize
+
+    // Initialize
         tvgreat = findViewById(R.id.tvgreat)
         nearBy = NearBy(this)
         accEstimation = AccEstimation(nearBy)
@@ -67,12 +70,27 @@ class RhythmEazy : AppCompatActivity() {
         val btndiscovery: Button = findViewById(R.id.btn_discovery)
         val btndisconnect: Button = findViewById(R.id.btndisconnect) // New Disconnect button
 
+        // デバイスIDを取得
+        val deviceId = nearBy.generateUniqueNickname(this)
+
+        // テキストビューにデバイスIDを設定
+        val idTextView: TextView = findViewById(R.id.text_id)
+        idTextView.text = deviceId
+
         logstart.setOnClickListener {
             if (!startSignalSent) {
                 start(this)
                 showToast("開始の信号を送信")
                 sendStartSignal()
                 startSignalSent = true // Update the flag after sending the signal
+                // タッチを無効にするために透明なViewを表示
+                val overlayView = findViewById<View>(R.id.overlayView)
+                overlayView.visibility = View.VISIBLE
+
+                // 35秒後にタッチイベントを再度有効にする
+                overlayView.postDelayed({
+                    overlayView.visibility = View.GONE
+                }, 35000) // 35秒
             } else {
                 showToast("既に開始の信号を送信しています")
                 Log.d(TAG, "開始の信号を既に送信済みです")
@@ -119,6 +137,7 @@ class RhythmEazy : AppCompatActivity() {
         if (nearBy.isEndpointIdInitialized()) {
             connectionsClient.disconnectFromEndpoint(nearBy.endpointId)
             showToast("接続を切断しました")
+            resetStartSignalSent()
             Log.d(TAG, "接続を切断しました")
             nearBy.resetEndpointId() // Reset endpoint ID after disconnecting
             restartNearby() // Restart discovery or advertising
@@ -126,6 +145,11 @@ class RhythmEazy : AppCompatActivity() {
             showToast("切断する接続がありません")
             Log.d(TAG, "切断する接続がありません")
         }
+    }
+
+    fun resetStartSignalSent() {
+        startSignalSent = false
+        Log.d(TAG, "startSignalSentがfalseにリセットされました")
     }
 
     private fun restartNearby() {

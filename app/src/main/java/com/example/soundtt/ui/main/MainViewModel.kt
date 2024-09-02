@@ -16,23 +16,16 @@ class MainViewModel : ViewModel() {
     lateinit var audioSensor: AudioSensor
     // todo SoundPlayer
     lateinit var nearBy: NearBy
-    // todo SoundPlayer
+    //lateinit var judgeTiming: JudgeTiming
 
 
     // アプリ起動時にやっておきたい処理やインスタンス化
     fun start(context: Context) {
-        //accSensor = AccSensor(context)
-//        accSensor.start()
         audioSensor = AudioSensor()
-//        audioSensor.start(context)
         nearBy = NearBy(context)
 
-
-        Log.d("MainViewModel","うわああああ")
-
-
+        Log.d("MainViewModel", "うわああああ")
     }
-
     // アプリ終了時に止めたい処理
     fun stop() {
         //accSensor.stop()

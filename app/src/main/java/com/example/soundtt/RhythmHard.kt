@@ -14,7 +14,7 @@ class RhythmHard : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.rhythmeazy)
+        setContentView(R.layout.rhythmeasy)
 
         //val tvex: TextView = findViewById(R.id.tvex)
         val tvgreat: TextView = findViewById(R.id.tvgreat)

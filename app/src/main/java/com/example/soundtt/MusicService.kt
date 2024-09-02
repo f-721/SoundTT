@@ -11,23 +11,23 @@ import androidx.fragment.app.Fragment
 class MusicService : Fragment() {
 
     private lateinit var mediaPlayer: MediaPlayer // MediaPlayerオブジェクトを宣言
-    private lateinit var btnStartEazy: Button
+    private lateinit var btnStartEasy: Button
     private lateinit var btnPause: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.rhythmeazy, container, false)
+        val rootView = inflater.inflate(R.layout.rhythmeasy, container, false)
 
-        btnStartEazy = rootView.findViewById<Button>(R.id.btnstart)
+        btnStartEasy = rootView.findViewById<Button>(R.id.btnstart)
         btnPause = rootView.findViewById<Button>(R.id.btnpause)
 
         // MediaPlayerオブジェクトを初期化
         mediaPlayer = MediaPlayer.create(context, R.raw.rhythmrally1)
 
-        // btnEazyStartボタンのクリックリスナーを設定
-        btnStartEazy.setOnClickListener {
+        // btnEasyStartボタンのクリックリスナーを設定
+        btnStartEasy.setOnClickListener {
             if (mediaPlayer.isPlaying) {
                 mediaPlayer.stop()
                 mediaPlayer.prepare()

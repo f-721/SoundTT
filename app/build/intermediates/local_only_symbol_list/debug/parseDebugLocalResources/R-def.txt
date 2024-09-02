@@ -12,7 +12,7 @@ drawable ic_launcher_foreground
 id SeekBar_Audio
 id SeekBar_Hit
 id SeekBar_Swing
-id btnEazy
+id btnEasy
 id btnHard
 id btnNormal
 id btn_advertise
@@ -29,13 +29,14 @@ id main
 id textView_Audio
 id textView_hit
 id textView_swing
+id text_id
 id tvbad
 id tvex
 id tvgood
 id tvgreat
 layout activity_main
 layout fragment_main
-layout rhythmeazy
+layout rhythmeasy
 layout rhythmhard
 layout rhythmnormal
 mipmap ic_launcher

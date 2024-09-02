@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RhythmEazy"
+            android:name=".RhythmEasy"
             android:exported="false">
         </activity>
         <activity

@@ -110,7 +110,7 @@
 57        </activity>
 58        <activity
 58-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:41:9-44:20
-59            android:name="com.example.soundtt.RhythmEazy"
+59            android:name="com.example.soundtt.RhythmEasy"
 59-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:42:13-39
 60            android:exported="false" >
 60-->/Users/k21146kk/Downloads/RhythmRallyTT/app/src/main/AndroidManifest.xml:43:13-37

@@ -23,7 +23,7 @@ private val accEstimation: AccEstimation,
     fun start() {
         Log.d("AccSensor", "Music Start")
         sensorManager.registerListener(this, accSensor, SensorManager.SENSOR_DELAY_UI)
-        judgeTiming.startJudging()
+        //judgeTiming.startJudging()
     }
 
     fun stop() {

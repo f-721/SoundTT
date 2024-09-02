@@ -15,7 +15,7 @@ import com.example.soundtt.AudioEstimation
 import com.example.soundtt.NearBy
 import com.example.soundtt.PlayAudio
 import com.example.soundtt.R
-import com.example.soundtt.RhythmEazy
+import com.example.soundtt.RhythmEasy
 import com.example.soundtt.RhythmHard
 import com.example.soundtt.RhythmNormal
 import java.util.ArrayDeque
@@ -32,9 +32,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private lateinit var playAudio: PlayAudio
     private lateinit var logHit: TextView
     private lateinit var logSwing: TextView
-    //    private lateinit var logCount:TextView
     private lateinit var logDb:TextView
-    private lateinit var logEazy:Button
+    private lateinit var logEasy:Button
     private lateinit var logNormal:Button
     private lateinit var logHard:Button
     private lateinit var logAdvertise:Button
@@ -45,7 +44,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     val maxSize = 5
     val queue = ArrayDeque<Int>(maxSize)
-    //val accEstimation = AccEstimation()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,9 +62,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         logSwing = rootView.findViewById<TextView>(R.id.textView_swing)
 //        logCount = rootView.findViewById<TextView>(R.id.textView_count)
 //        logDb = rootView.findViewById<TextView>(R.id.textView_db)
-        logEazy = rootView.findViewById<Button>(R.id.btnEazy)
+        logEasy = rootView.findViewById<Button>(R.id.btnEasy)
         logNormal = rootView.findViewById<Button>(R.id.btnNormal)
-        logHard = rootView.findViewById<Button>(R.id.btnHard)
         logHard = rootView.findViewById<Button>(R.id.btnHard)
         logAdvertise = rootView.findViewById<Button>(R.id.button_advertise)
         logDiscovery = rootView.findViewById<Button>(R.id.button_discovery)
@@ -158,8 +155,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 //        logDiscovery.setOnClickListener {
 //            viewModel.nearBy.Startdiscovery()
 //        }
-        logEazy.setOnClickListener {
-            val intent = Intent(context,RhythmEazy::class.java)
+        logEasy.setOnClickListener {
+            val intent = Intent(context,RhythmEasy::class.java)
             startActivity(intent)
             Log.d("MainFragment","画面が移行したよ！！")
         }

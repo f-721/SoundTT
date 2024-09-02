@@ -2947,7 +2947,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id btnEazy
+id btnEasy
 id btnHard
 id btnNormal
 id btn_advertise
@@ -3312,6 +3312,7 @@ id textTop
 id textView_Audio
 id textView_hit
 id textView_swing
+id text_id
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3547,7 +3548,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout rhythmeazy
+layout rhythmeasy
 layout rhythmhard
 layout rhythmnormal
 layout select_dialog_item_material
