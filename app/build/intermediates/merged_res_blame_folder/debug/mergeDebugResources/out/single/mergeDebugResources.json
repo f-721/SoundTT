@@ -96,6 +96,10 @@
         "source": "/Users/k21146kk/.gradle/daemon/8.4/com.example.soundtt.app-main-43:/layout/rhythmnormal.xml"
     },
     {
+        "merged": "/Users/k21146kk/.gradle/daemon/8.4/com.example.soundtt.app-debug-41:/layout_rhythmeasy.xml.flat",
+        "source": "/Users/k21146kk/.gradle/daemon/8.4/com.example.soundtt.app-main-43:/layout/rhythmeasy.xml"
+    },
+    {
         "merged": "com.example.soundtt.app-debug-41:/layout_rhythmeasy.xml.flat",
         "source": "com.example.soundtt.app-main-43:/layout/rhythmeasy.xml"
     },
@@ -118,10 +122,6 @@
     {
         "merged": "/Users/k21146kk/.gradle/daemon/8.4/com.example.soundtt.app-debug-41:/layout_rhythmeazy.xml.flat",
         "source": "/Users/k21146kk/.gradle/daemon/8.4/com.example.soundtt.app-main-43:/layout/rhythmeazy.xml"
-    },
-    {
-        "merged": "com.example.soundtt.app-debug-41:/layout_fragment_main.xml.flat",
-        "source": "com.example.soundtt.app-main-43:/layout/fragment_main.xml"
     },
     {
         "merged": "/Users/k21146kk/.gradle/daemon/8.4/com.example.soundtt.app-debug-41:/mipmap-hdpi_ic_launcher_round.webp.flat",

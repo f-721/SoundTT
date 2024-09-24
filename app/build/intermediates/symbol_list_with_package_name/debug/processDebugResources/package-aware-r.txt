@@ -3185,6 +3185,7 @@ id on
 id onInterceptTouchReturnSwipe
 id outline
 id outward
+id overlayView
 id overshoot
 id packed
 id parallax

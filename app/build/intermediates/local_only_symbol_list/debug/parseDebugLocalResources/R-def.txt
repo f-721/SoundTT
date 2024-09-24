@@ -26,6 +26,7 @@ id button_discovery
 id container
 id countTextview
 id main
+id overlayView
 id textView_Audio
 id textView_hit
 id textView_swing

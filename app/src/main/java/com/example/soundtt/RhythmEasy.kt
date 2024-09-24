@@ -7,11 +7,9 @@ import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -63,7 +61,7 @@ class RhythmEasy : AppCompatActivity() {
 
         mediaPlayer = MediaPlayer.create(this, R.raw.rhythmrally1)
 
-        val btnpause: Button = findViewById(R.id.btnpause)
+//        val btnpause: Button = findViewById(R.id.btnpause)
         val logstart: Button = findViewById(R.id.btnstart)
         val logback: Button = findViewById(R.id.btnback)
         val btnadvertise: Button = findViewById(R.id.btn_advertise)
@@ -83,23 +81,23 @@ class RhythmEasy : AppCompatActivity() {
                 showToast("開始の信号を送信")
                 sendStartSignal()
                 startSignalSent = true // Update the flag after sending the signal
-                // タッチを無効にするために透明なViewを表示
-                val overlayView = findViewById<View>(R.id.overlayView)
-                overlayView.visibility = View.VISIBLE
-
-                // 35秒後にタッチイベントを再度有効にする
-                overlayView.postDelayed({
-                    overlayView.visibility = View.GONE
-                }, 35000) // 35秒
+//                // タッチを無効にするために透明なViewを表示
+//                val overlayView = findViewById<View>(R.id.overlayView)
+//                overlayView.visibility = View.VISIBLE
+//
+//                // 35秒後にタッチイベントを再度有効にする
+//                overlayView.postDelayed({
+//                    overlayView.visibility = View.GONE
+//                }, 35000) // 35秒
             } else {
                 showToast("既に開始の信号を送信しています")
                 Log.d(TAG, "開始の信号を既に送信済みです")
             }
         }
 
-        btnpause.setOnClickListener {
-            showPauseDialog()
-        }
+//        btnpause.setOnClickListener {
+//            showPauseDialog()
+//        }
 
         logback.setOnClickListener {
             stop()
@@ -189,18 +187,18 @@ class RhythmEasy : AppCompatActivity() {
         }
     }
 
-    private fun showPauseDialog() {
-        AlertDialog.Builder(this)
-            .setTitle("PAUSE")
-            .setPositiveButton("再開") { dialog, which ->
-                mediaPlayer.start()
-            }
-            .setNegativeButton("リトライ") { dialog, which ->
-                mediaPlayer.seekTo(0)
-                mediaPlayer.start()
-            }
-            .show()
-    }
+//    private fun showPauseDialog() {
+//        AlertDialog.Builder(this)
+//            .setTitle("PAUSE")
+//            .setPositiveButton("再開") { dialog, which ->
+//                mediaPlayer.start()
+//            }
+//            .setNegativeButton("リトライ") { dialog, which ->
+//                mediaPlayer.seekTo(0)
+//                mediaPlayer.start()
+//            }
+//            .show()
+//    }
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
