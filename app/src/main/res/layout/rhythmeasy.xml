@@ -29,9 +29,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.285" />
 
     <Button
         android:id="@+id/btnstart"
@@ -97,8 +98,8 @@
 
     <TextView
         android:id="@+id/text_id"
-        android:layout_width="154dp"
-        android:layout_height="58dp"
+        android:layout_width="242dp"
+        android:layout_height="60dp"
         android:text="TextView"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
