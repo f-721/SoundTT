@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.nearby.Nearby
-import com.google.android.gms.nearby.connection.AdvertisingOptions
 import com.google.android.gms.nearby.connection.ConnectionInfo
 import com.google.android.gms.nearby.connection.ConnectionLifecycleCallback
 import com.google.android.gms.nearby.connection.ConnectionResolution
@@ -20,7 +19,7 @@ import com.google.android.gms.nearby.connection.PayloadCallback
 import com.google.android.gms.nearby.connection.PayloadTransferUpdate
 import com.google.android.gms.nearby.connection.Strategy
 
-class NearBy(private val context: Context) {
+class NearBy(private val context: Context, private val activity: RhythmEasy) {
     var SERVICE_ID = "atuo.nearby"
     var nickname: String
     val TAG = "myapp"
@@ -47,13 +46,17 @@ class NearBy(private val context: Context) {
     // ID保存！
     private val connectedEndpoints = mutableListOf<String>()
 
+    private var timeOffset: Long = 0 // オフセット値を保持する
+
     fun sendHitTime(time: String) {
         if (::endpointId.isInitialized) {
-            val payload = Payload.fromBytes("TIME:$time".toByteArray())
-            Log.d(TAG, "送信するヒット時刻: $time")
+            // 送信前にクライアントのオフセットを適用して時刻を補正
+            val correctedTime = (time.toLong() + timeOffset).toString()
+            val payload = Payload.fromBytes("TIME:$correctedTime".toByteArray())
+            Log.d(TAG, "送信する補正されたヒット時刻: $correctedTime")
             Nearby.getConnectionsClient(context).sendPayload(endpointId, payload)
                 .addOnSuccessListener {
-                    Log.d(TAG, "ヒット時刻が正常に送信されました: $time")
+                    Log.d(TAG, "ヒット時刻が正常に送信されました: $correctedTime")
                 }
                 .addOnFailureListener { e ->
                     Log.e(TAG, "ヒット時刻の送信に失敗しました: ${e.message}")
@@ -62,6 +65,7 @@ class NearBy(private val context: Context) {
             Log.d(TAG, "ヒット時刻：EndpointIDが初期化されていません")
         }
     }
+
 
 
     fun sendId(id: String) {
@@ -95,23 +99,23 @@ class NearBy(private val context: Context) {
         }
     }
 
-    fun advertise() {
-        if (isConnected) {
-            Log.d(TAG, "既に接続済みです")
-            return
-        }
-        Log.d(TAG, "advertiseを開始します")
-        connectionsClient.startAdvertising(
-            nickname,
-            SERVICE_ID,
-            mConnectionLifecycleCallback,
-            AdvertisingOptions(Strategy.P2P_STAR)
-        ).addOnSuccessListener {
-            Log.d(TAG, "advertiseが開始されました")
-        }.addOnFailureListener { e ->
-            Log.d(TAG, "advertiseを開始できませんでした: ${e.localizedMessage}")
-        }
-    }
+//    fun advertise() {
+//        if (isConnected) {
+//            Log.d(TAG, "既に接続済みです")
+//            return
+//        }
+//        Log.d(TAG, "advertiseを開始します")
+//        connectionsClient.startAdvertising(
+//            nickname,
+//            SERVICE_ID,
+//            mConnectionLifecycleCallback,
+//            AdvertisingOptions(Strategy.P2P_STAR)
+//        ).addOnSuccessListener {
+//            Log.d(TAG, "advertiseが開始されました")
+//        }.addOnFailureListener { e ->
+//            Log.d(TAG, "advertiseを開始できませんでした: ${e.localizedMessage}")
+//        }
+//    }
 
     fun discovery() {
         if (isConnected) {
@@ -185,6 +189,9 @@ class NearBy(private val context: Context) {
                     Toast.makeText(context, "接続成功", Toast.LENGTH_SHORT).show()
                     isConnected = true
 
+                    // RhythmEasyのメソッドを呼び出してtextconnectを表示
+                    activity.showConnectionText()
+
                     // Stop discovery and advertising when connected
                     stopDiscoveryAndAdvertising()
                 }
@@ -234,10 +241,12 @@ class NearBy(private val context: Context) {
 
         private fun handleHitTime(hitTime: String) {
             Log.d(TAG, "Received hit time: $hitTime")
-            // Convert hitTime to Long and process it as needed
             val hitTimeLong = hitTime.toLongOrNull()
             if (hitTimeLong != null) {
-                // Process the hit time
+                val currentTime = System.currentTimeMillis()
+                // ホストとの時間差を計算してオフセットに保存
+                timeOffset = currentTime - hitTimeLong
+                Log.d(TAG, "Calculated time offset: $timeOffset")
             } else {
                 Log.d(TAG, "Invalid hit time format: $hitTime")
             }

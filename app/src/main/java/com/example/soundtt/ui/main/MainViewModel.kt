@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.soundtt.AudioSensor
 import com.example.soundtt.NearBy
+import com.example.soundtt.RhythmEasy
 
 class MainViewModel : ViewModel() {
 
@@ -22,7 +23,7 @@ class MainViewModel : ViewModel() {
     // アプリ起動時にやっておきたい処理やインスタンス化
     fun start(context: Context) {
         audioSensor = AudioSensor()
-        nearBy = NearBy(context)
+        nearBy = NearBy(context, RhythmEasy())
 
         Log.d("MainViewModel", "うわああああ")
     }

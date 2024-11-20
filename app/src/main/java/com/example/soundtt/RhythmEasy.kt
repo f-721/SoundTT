@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -34,7 +35,7 @@ class RhythmEasy : AppCompatActivity() {
     private lateinit var accEstimation: AccEstimation
     private lateinit var judgeTiming: JudgeTiming
     private lateinit var nearBy: NearBy
-    private lateinit var idtextView: TextView
+    private lateinit var textconnect: TextView
 
     private lateinit var connectionsClient: ConnectionsClient
     private var startSignalSent = false // Flag to check if the start signal has been sent
@@ -46,12 +47,15 @@ class RhythmEasy : AppCompatActivity() {
 
     // Initialize
         tvgreat = findViewById(R.id.tvgreat)
-        nearBy = NearBy(this)
+        nearBy = NearBy(this, this)
         accEstimation = AccEstimation(nearBy)
         judgeTiming = JudgeTiming(accEstimation, tvgreat, nearBy)
         accSensor = AccSensor(this, tvgreat, accEstimation, nearBy, judgeTiming)
 
         connectionsClient = Nearby.getConnectionsClient(this)
+        textconnect = findViewById(R.id.textconnect) // ここで lateinit プロパティとして初期化
+
+        textconnect.visibility = View.GONE // 既存のローカル変数宣言を削除
 
         if (allPermissionsGranted()) {
             initializeNearbyFunctionality()
@@ -64,9 +68,11 @@ class RhythmEasy : AppCompatActivity() {
 //        val btnpause: Button = findViewById(R.id.btnpause)
         val logstart: Button = findViewById(R.id.btnstart)
         val logback: Button = findViewById(R.id.btnback)
-        val btnadvertise: Button = findViewById(R.id.btn_advertise)
+//        val btnadvertise: Button = findViewById(R.id.btn_advertise)
         val btndiscovery: Button = findViewById(R.id.btn_discovery)
-        val btndisconnect: Button = findViewById(R.id.btndisconnect) // New Disconnect button
+        val btndisconnect: Button = findViewById(R.id.btndisconnect)
+        val textconnect: TextView = findViewById(R.id.textconnect)
+            textconnect.visibility = View.GONE
 
         // デバイスIDを取得
         val deviceId = nearBy.generateUniqueNickname(this)
@@ -81,14 +87,6 @@ class RhythmEasy : AppCompatActivity() {
                 showToast("開始の信号を送信")
                 sendStartSignal()
                 startSignalSent = true // Update the flag after sending the signal
-//                // タッチを無効にするために透明なViewを表示
-//                val overlayView = findViewById<View>(R.id.overlayView)
-//                overlayView.visibility = View.VISIBLE
-//
-//                // 35秒後にタッチイベントを再度有効にする
-//                overlayView.postDelayed({
-//                    overlayView.visibility = View.GONE
-//                }, 35000) // 35秒
             } else {
                 showToast("既に開始の信号を送信しています")
                 Log.d(TAG, "開始の信号を既に送信済みです")
@@ -104,9 +102,9 @@ class RhythmEasy : AppCompatActivity() {
             finish()
         }
 
-        btnadvertise.setOnClickListener {
-            nearBy.advertise()
-        }
+//        btnadvertise.setOnClickListener {
+//            nearBy.advertise()
+//        }
 
         btndiscovery.setOnClickListener {
             nearBy.discovery()
@@ -116,6 +114,22 @@ class RhythmEasy : AppCompatActivity() {
             disconnect()
         }
     }
+
+    private fun onConnectionEstablished() {
+        textconnect.visibility = View.VISIBLE
+        showToast("接続が確立されました")
+    }
+
+    // 接続成功時にtextconnectを表示するメソッド
+    fun showConnectionText() {
+        if (::textconnect.isInitialized) {
+            textconnect.visibility = View.VISIBLE
+            Toast.makeText(this, "接続が確立されました", Toast.LENGTH_SHORT).show()
+        } else {
+            Log.e(TAG, "textconnect が初期化されていません")
+        }
+    }
+
 
     private fun initializeNearbyFunctionality() {
         nearBy.initializeNearby()
@@ -137,6 +151,7 @@ class RhythmEasy : AppCompatActivity() {
             showToast("接続を切断しました")
             resetStartSignalSent()
             Log.d(TAG, "接続を切断しました")
+            textconnect.visibility = View.GONE
             nearBy.resetEndpointId() // Reset endpoint ID after disconnecting
             restartNearby() // Restart discovery or advertising
         } else {
